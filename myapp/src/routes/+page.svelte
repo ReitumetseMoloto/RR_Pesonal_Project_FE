@@ -3,11 +3,13 @@
 
   function userLogin(event:Event){
   event.preventDefault();
+  const UsernameInput = document.querySelector('input[name="username"]') as HTMLInputElement;
+  const username = UsernameInput.value;
   const idNumberInput = document.querySelector('input[name="idNumber"]') as HTMLInputElement;
   const idNumber = idNumberInput.value;
 
-  if (!idNumber) {
-    alert("Please enter ID Number");
+  if (!idNumber && !username) {
+    alert("Please enter Username and ID Number");
   }
   
   // Check if ID number is exactly 13 digits
