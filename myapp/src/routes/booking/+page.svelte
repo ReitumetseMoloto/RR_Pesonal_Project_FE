@@ -8,6 +8,7 @@
         gender: '',
         cellphone_Number: '',
         email: '',
+        civic_Service: '',
         dateTime: ''
     }
 
@@ -32,6 +33,8 @@
 
                 email: postData.email,
 
+                civic_Service: postData.civic_Service,
+
                 dateTime: postData.dateTime
             })
         })
@@ -49,28 +52,34 @@
     <div class="left">
 		<div class="contact">
 			<form class="bookingForm">
-					<h3>BOOKING FOR ID SMART CARD</h3>
-                    <label for="first_Name">First Name:</label>
-					<input type="text" name="name" bind:value={postData.first_Name}>
-                    <label for="last_Name">Last Name:</label>
-					<input type="text" name="surname" bind:value={postData.last_Name}>
-                    <label for="id_Number">ID Number:</label>
-                    <input type="text" name="idNumber" bind:value={postData.id_Number}>
-                    <label for="gender">Gender:</label>
-                    <input type="radio" id="male" name="Gender" value="Male" bind:group={postData.gender}>
-                    <label for="html">Male</label><br>
-                    <input type="radio" id="female" name="Gender" value="Female" bind:group={postData.gender}>
-                    <label for="css">Female</label><br>
-                    <input type="radio" id="other" name="Gender" value="Other" bind:group={postData.gender}>
-                    <label for="javascript">Other</label><br>
-                    <label for="cellphoneNumber">Cellphone Number:</label>
-                    <input type="text" name="cellphoneNumber" bind:value={postData.cellphone_Number}>
-                    <label for="Email">Email:</label>
-                    <input type="text" name="email" bind:value={postData.email}>
-                    <label for="DateTime">Choose Date and Time:</label>
-                    <input type="datetime-local" name="dateTime" bind:value={postData.dateTime}>
+				<h3>BOOKING FOR ID SMART CARD</h3>
+                <label for="first_Name">First Name:</label>
+				<input type="text" name="name" bind:value={postData.first_Name}>
+                <label for="last_Name">Last Name:</label>
+				<input type="text" name="surname" bind:value={postData.last_Name}>
+                <label for="id_Number">ID Number:</label>
+                <input type="text" name="idNumber" bind:value={postData.id_Number}>
+                <label for="gender">Gender:</label>
+                <input type="radio" id="male" name="Gender" value="Male" bind:group={postData.gender}>
+                <label for="html">Male</label><br>
+                <input type="radio" id="female" name="Gender" value="Female" bind:group={postData.gender}>
+                <label for="css">Female</label><br>
+                <input type="radio" id="other" name="Gender" value="Other" bind:group={postData.gender}>
+                <label for="javascript">Other</label><br>
+                <label for="cellphoneNumber">Cellphone Number:</label>
+                <input type="text" name="cellphoneNumber" bind:value={postData.cellphone_Number}>
+                <label for="civicService">Civic Service:</label><br/>
+                <select name="civicService" id="civicService" bind:value={postData.civic_Service}>
+                <option value="">--Please choose an option--</option>
+                <option value="IDSmartCard">ID</option>
+                <option value="Passport">Passport</option>
+                </select><br/>
+                <label for="Email">Email:</label>
+                <input type="text" name="email" bind:value={postData.email}>
+                <label for="DateTime">Choose Date and Time:</label>
+                <input type="datetime-local" name="dateTime" bind:value={postData.dateTime}>
 
-					<button class="submit" on:click={formHandler} >BOOK</button>
+				<button class="submit" on:click={formHandler} >BOOK</button>
 			</form>
           
 		</div>
