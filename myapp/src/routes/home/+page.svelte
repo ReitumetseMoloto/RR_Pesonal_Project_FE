@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Header from '../Header.svelte';
+	import Footer from '../Footer.svelte';
 </script>
 <main>
 	<!--HOME PAGE-->
@@ -27,17 +28,8 @@
 			<!-- svelte-ignore a11y-missing-attribute -->
 			<img src="/src/Logo.png" class="logo"/>
 			<h3>PASSPORT</h3>
-			<p>Click on the button below to apply for a Passport</p>
+			<p>Click on the button below Book a Slot for a Passport</p>
 			<button class="passport-button">APPLY</button>
-
-		</div>
-    <!--Collect-->
-		<div>
-			<!-- svelte-ignore a11y-missing-attribute -->
-			<img src="/src/Logo.png" class="logo"/>
-			<h3>COLLECT</h3>
-			<p>Click on the button below to make a booking for collection of Passport or ID</p>
-			<button class="collect-button">COLLECT</button>
 
 		</div>
 
@@ -45,11 +37,11 @@
 	<div class="note">
 		<h4 class="note-h4">NOTE:</h4>
 		<p class="note-p">A branch visit is mandatory to capture and\or verify your biometric details, i.e.
-			fingerprints and signature. You can also finalise your application at any Home Affairs office;
-			no appointment is required.</p>
+			fingerprints and signature. You can also finalise your application at any Home Affairs office once you have booked a slot .</p>
 	</div>
 
 	<!---======Footer=======-->
+	<Footer/>
 </main>
 
 <style>

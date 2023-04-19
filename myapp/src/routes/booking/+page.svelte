@@ -1,5 +1,6 @@
 <script lang="ts">
     import Header from '../Header.svelte';
+    import Footer from '../Footer.svelte';
     const postData = {
         first_Name: '',
         last_Name: '',
@@ -36,7 +37,7 @@
         })
         .then(response => response.json())
         .then(result => {
-        const message = `Dear: ${result.first_Name} your booking has been confirmed! See details below:\n Date and Time: ${result.dateTime} \n See you soon at the nearest Home Affairs!`;
+        const message = `Dear ${result.first_Name} your booking has been confirmed! See details below:\n Date and Time: ${result.dateTime} \n See you soon at the nearest Home Affairs Office.`;
         alert(message);});
 
     }
@@ -74,6 +75,7 @@
           
 		</div>
 	</div>
+    <Footer/>
 </body>
 
 <style>
