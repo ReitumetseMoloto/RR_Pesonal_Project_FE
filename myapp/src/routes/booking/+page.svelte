@@ -35,7 +35,7 @@
 
                 civic_Service: postData.civic_Service,
 
-                dateTime: postData.dateTime
+                dateTime: postData.dateTime.toString()
             })
         })
         .then(response => response.json())

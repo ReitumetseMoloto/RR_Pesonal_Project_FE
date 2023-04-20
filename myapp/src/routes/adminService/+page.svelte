@@ -1,5 +1,5 @@
 <script lang="ts">
-if (typeof document !== "undefined") {
+  if (typeof document !== "undefined") {
   const sidebar = document.querySelector(".sidebar") as HTMLElement;
   const sidebarBtn = document.querySelector(".sidebarBtn") as HTMLElement;
 
@@ -12,17 +12,50 @@ if (typeof document !== "undefined") {
     }
   }
 }
+  import { onMount } from 'svelte';
 
-import {onMount} from 'svelte'
+  let booking: any[];
+  let errorMessage: string;
 
-let booking: any[]
+  onMount(async () => {
+    try {
+      const response = await fetch('http://localhost:3000/bookings/get');
+      const result = await response.json();
 
-onMount(()=>{
-  fetch('http://localhost:3000/bookings/get')
-  .then(response => response.json())
-  .then(result => booking = result)
-  })
+      if (Array.isArray(result)) {
+        booking = result;
+      } else {
+        throw new Error('Invalid data received');
+      }
+    } catch (error) {
+      console.error(error);
+      errorMessage = 'Failed to fetch data';
+    }
+  });
+
+  function deletebyID(IDNumber: any) {
+    fetch(`http://localhost:3000/bookings/${IDNumber}`, {
+      method: 'DELETE'
+    })
+      .then(response => {
+        if (response.ok) {
+          alert("Deleted succeffully");
+        } else {
+          throw new Error('Invalid data received');
+        }
+      })
+      .catch(error => {
+      console.error(error);
+      errorMessage = 'Failed to fetch data';
+      });
+  }
 </script>
+
+<!-- 
+      <h2>({bookings.first_Name}) {bookings.last_Name}</h2>
+      <p>{bookings.email}</p>
+      <hr> -->
+
 
 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 <body>
@@ -73,66 +106,71 @@ onMount(()=>{
       </div>
     </nav>
 <!--GET Bookings-->
+{#if errorMessage}
+  <h2>{errorMessage}</h2>
+{:else}
+  {#if booking && booking.length > 0}
+    {#each booking as bookings }
     <div class="home-content">
       <div class="sales-boxes">
         <div class="recent-sales box">
-          <div class="title">Bookings</div>
+          <!-- <div class="title">Bookings</div> -->
           <div class="sales-details">
             
             <ul class="details">
-              <li class="topic">Date</li>
-              <li><a href="@">o1 Jan 2021</a></li>
-              <li><a href="@">02 Jan 2021</a></li>
-              <li><a href="@">02 Jan 2021</a></li>
-              <li><a href="@">02 Jan 2021</a></li>
-              <li><a href="@">02 Jan 2021</a></li>
-              <li><a href="@">02 Jan 2021</a></li>
-              <li><a href="@">02 Jan 2021</a></li>
+              <li class="topic">First Name</li>
+              <li><a href="@">{bookings.first_Name}</a></li>
             </ul>
             
             <ul class="details">
-            <li class="topic">Customer</li>
-            <li><a href="@">Alex Doe</a></li>
-            <li><a href="@">David Mart</a></li>
-            <li><a href="@">Roe Parter</a></li>
-            <li><a href="@">Diana Penty</a></li>
-            <li><a href="@">Martin Paw</a></li>
-            <li><a href="@">Doe Alex</a></li>
-            <li><a href="@">Aiana Lexa</a></li>
-            <li><a href="@">Rexel Mags</a></li>
-             <li><a href="@">Tiana Loths</a></li>
+            <li class="topic">Last Name</li>
+            <li><a href="@">{bookings.last_Name}</a></li>
           </ul>
+
           <ul class="details">
-            <li class="topic">Sales</li>
-            <li><a href="@">Delivered</a></li>
-            <li><a href="@">Pending</a></li>
-            <li><a href="@">Returned</a></li>
-            <li><a href="@">Delivered</a></li>
-            <li><a href="@">Pending</a></li>
-            <li><a href="@">Returned</a></li>
-            <li><a href="@">Delivered</a></li>
-             <li><a href="@">Pending</a></li>
-            <li><a href="@">Delivered</a></li>
+            <li class="topic">ID Number</li>
+            <li><a href="@">{bookings.id_Number}</a></li>
           </ul>
+
           <ul class="details">
-            <li class="topic">Total</li>
-            <li><a href="@">$204.98</a></li>
-            <li><a href="@">$24.55</a></li>
-            <li><a href="@">$25.88</a></li>
-            <li><a href="@">$170.66</a></li>
-            <li><a href="@">$56.56</a></li>
-            <li><a href="@">$44.95</a></li>
-            <li><a href="@">$67.33</a></li>
-             <li><a href="@">$23.53</a></li>
-             <li><a href="@">$46.52</a></li>
+            <li class="topic">Gender</li>
+            <li><a href="@">{bookings.gender}</a></li>
           </ul>
+
+          <ul class="details">
+            <li class="topic">Cellphone Number</li>
+            <li><a href="@">{bookings.cellphone_Number}</a></li>
+          </ul>
+
+          <ul class="details">
+            <li class="topic">Email</li>
+            <li><a href="@">{bookings.email}</a></li>
+          </ul>
+
+          <ul class="details">
+            <li class="topic">Civic Service</li>
+            <li><a href="@">{bookings.civic_Service}</a></li>
+          </ul>
+
+          <ul class="details">
+            <li class="topic">Date & Time</li>
+            <li><a href="@">{bookings.dateTime}</a></li>
+          </ul>
+
           </div>
           <div class="button">
-            <a href="@">See All</a>
+            <button on:click={() => deletebyID(bookings.IDNumber)}>Delete</button>
           </div>
         </div>
       </div>
     </div>
+    {/each}
+    {:else if booking}
+      <h2>No bookings found</h2>
+    {:else}
+      <h2>Loading...</h2>
+    {/if}
+  {/if}
   </section>
 </body>
   
@@ -311,7 +349,7 @@ nav .profile-details i{
 
 /* left box */
 .home-content .sales-boxes .recent-sales{
-  width: 65%;
+  width: 100%;
   background: #fff;
   padding: 20px 30px;
   margin: 0 20px;
@@ -441,8 +479,6 @@ nav .profile-details i{
 }
 
 </style>
-
-
 
 
 

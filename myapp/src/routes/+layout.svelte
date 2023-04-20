@@ -1,14 +1,11 @@
 <script>
 	import HomePage from './home/+page.svelte'
 	import './styles.css';
-
-
 </script>
 
 <div class="app">
 	<main>
 		<slot />
-
 	</main>
 </div>
 
