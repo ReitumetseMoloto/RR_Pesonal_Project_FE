@@ -29,7 +29,7 @@
 			<img src="/src/Logo.png" class="logo"/>
 			<h3>PASSPORT</h3>
 			<p>Click on the button below Book a Slot for a Passport</p>
-			<button class="passport-button">APPLY</button>
+			<button class="passport-button" on:click={() => window.location.href='/booking'}>APPLY</button>
 
 		</div>
 

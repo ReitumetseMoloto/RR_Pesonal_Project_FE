@@ -52,7 +52,7 @@
     <div class="left">
 		<div class="contact">
 			<form class="bookingForm">
-				<h3>BOOKING FOR ID SMART CARD</h3>
+				<h3>BOOK A SLOT HERE</h3>
                 <label for="first_Name">First Name:</label>
 				<input type="text" name="name" bind:value={postData.first_Name}>
                 <label for="last_Name">Last Name:</label>

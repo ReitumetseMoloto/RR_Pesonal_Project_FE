@@ -1,8 +1,13 @@
+<script lang="ts">
+
+
+</script>
+
 <header class="home-header">
 	<nav class="nav-container">
 		<div>
 			<!-- svelte-ignore a11y-missing-attribute -->
-			<img src="/src/Logo.png" class="logo"/>
+			<img src="../lib/images/logo.png" class="logo"/>
 		</div>
 		
 		<ul class="nav-ul">
