@@ -28,6 +28,7 @@
 		"chartjs-adapter-date-fns": "^3.0.0",
 		"jquery": "^3.6.4",
 		"semantic-ui-css": "^2.5.0",
-		"svelte-chartjs": "^3.1.2"
+		"svelte-chartjs": "^3.1.2",
+		"svelty-picker": "^3.4.6"
 	}
 }

@@ -1,6 +1,7 @@
 <script lang="ts">
     import Header from '../Header.svelte';
     import Footer from '../Footer.svelte';
+    import SveltyPicker from 'svelty-picker';
     const postData = {
         first_Name: '',
         last_Name: '',
@@ -35,7 +36,7 @@
 
                 civic_Service: postData.civic_Service,
 
-                dateTime: postData.dateTime.toString()
+                dateTime: postData.dateTime
             })
         })
         .then(response => response.json())
@@ -43,22 +44,56 @@
         const message = `Dear ${result.first_Name} your booking has been confirmed! See details below:\n Date and Time: ${result.dateTime} \n See you soon at the nearest Home Affairs Office.`;
         alert(message);});
 
-    }
+        const nameInput = document.querySelector('input[name="name"]') as HTMLInputElement;
+        const name = nameInput.value;
+        const surnameInput = document.querySelector('input[name="surname"]') as HTMLInputElement;
+        const surname = surnameInput.value;
+        const idInput = document.querySelector('input[name="idNumber"]') as HTMLInputElement;
+        const idNumber = idInput.value;
+        const cellInput = document.querySelector('input[name="cellphoneNumber"]') as HTMLInputElement;
+        const cellphoneNo = cellInput.value;
+        const emailInput = document.querySelector('input[name="email"]') as HTMLInputElement;
+        const email = emailInput.value;
+
+        if (!name && !surname) {
+       alert("Please enter all the fields");
+        }else if(!idNumber){
+            alert("Please enter all the fields");
+
+        }
+       else if(!cellphoneNo){
+            alert("Please enter all the fields");
+
+        }
+        else if(!email){
+            alert("Please enter all the fields");
+
+        }
+       else{
+       window.location.href = "/BookingConfirmation";
+       }
+        
+
+        // var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+       
+
+  }
+
 </script>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <body>
-	<Header />	
+
     <div class="left">
 		<div class="contact">
 			<form class="bookingForm">
-				<h3>BOOK A SLOT HERE</h3>
+                <h3>BOOK A SLOT HERE</h3>
+
                 <label for="first_Name">First Name:</label>
-				<input type="text" name="name" bind:value={postData.first_Name}>
+				<input type="text" name="name"  bind:value={postData.first_Name}>
                 <label for="last_Name">Last Name:</label>
-				<input type="text" name="surname" bind:value={postData.last_Name}>
+				<input type="text" name="surname"  bind:value={postData.last_Name}>
                 <label for="id_Number">ID Number:</label>
                 <input type="text" name="idNumber" bind:value={postData.id_Number}>
                 <label for="gender">Gender:</label>
@@ -79,20 +114,24 @@
                 <label for="Email">Email:</label>
                 <input type="text" name="email" bind:value={postData.email}>
                 <label for="DateTime">Choose Date and Time:</label>
-                <input type="datetime-local" name="dateTime" bind:value={postData.dateTime}>
+                <!-- <input type="datetime-local" name="dateTime" bind:value={postData.dateTime}> -->
+                <SveltyPicker inputClasses="form-control" format="yyyy-mm-dd hh:ii" bind:value={postData.dateTime} placeholder='Select date and time' autoclose></SveltyPicker>
 
 				<button class="submit" on:click={formHandler} >BOOK</button>
 			</form>
           
 		</div>
 	</div>
-    <Footer/>
 </body>
 
 <style>
 body{
     background: linear-gradient(-45deg, #dcd7e0, #fff);
 }
+/* label{
+    font-weight: bold;
+
+} */
 .left .contact{
 	display: flex;
     align-items: center;
@@ -123,8 +162,7 @@ body{
 	background: white;
     width: 50%;
     margin: auto;
-    border: 0.5px solid #F89D07;
-    outline-style:dashed;
+
     outline-color: #F89D07;
     margin-top: 20px;
 }
@@ -135,7 +173,7 @@ body{
     display: block;
     margin: auto;
     margin-top: 30px;
-    background: #F89D07;
+    background: linear-gradient(212.38deg, #F89D07 0%, #006636 100%),url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clinithink.com%2F&psig=AOvVaw1kd0yT1HUgd6Qjk6xP6r2q&ust=1679733419021000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC96-eU9P0CFQAAAAAdAAAAABAS);
     color: #fff;
     font-weight: bold;
     margin-bottom: 30px;

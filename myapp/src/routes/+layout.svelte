@@ -1,5 +1,5 @@
 <script>
-	import HomePage from './home/+page.svelte'
+
 	import './styles.css';
 </script>
 

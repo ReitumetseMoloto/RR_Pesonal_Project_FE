@@ -1,3 +1,4 @@
+
 <footer class="footer-distributed">
 
     <div class="footer-left">
@@ -5,42 +6,23 @@
         <h3>Company<span>logo</span></h3>
 
         <p class="footer-links">
-            <a href="/" class="link-1">Home</a>
+            <a href="#about" class="link-1">About</a>
             
-            <a href="/">About</a>
+            <a href="#booking">Booking</a>
         
-            <a href="/">Ts and Cs</a>
+            <a href="#work">Civic Services</a>
         
-            <a href="/">Contact Us</a>
+            <a href="#contact">Contact Us</a>
         </p>
 
         <p class="footer-company-name">Department of Home Affairs © 2023</p>
     </div>
 
-    <div class="footer-center">
-
-        <div>
-            <i class="fa fa-map-marker"></i>
-            <p><span>Smart ID Card</span> Passport</p>
-        </div>
-
-        <div>
-            <i class="fa fa-phone"></i>
-            <p>+1.555.555.5555</p>
-        </div>
-
-        <div>
-            <i class="fa fa-envelope"></i>
-            <p><a href="mailto:support@company.com">support@homeaffairs.com</a></p>
-        </div>
-
-    </div>
-
     <div class="footer-right">
 
         <p class="footer-company-about">
-            <span>About the company</span>
-            Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+            <span>About Home Affairs</span>
+			The Department of Home Affairs offers a multitude of services to the citizens of South Africa, as well as foreigners who wish to visit, work or stay in South Africa.
         </p>
 
         <div class="footer-icons">
@@ -60,16 +42,6 @@
   font-family: Open Sans;
 }
 
-section {
-  width: 100%;
-  display: inline-block;
-  background: #333;
-  height: 50vh;
-  text-align: center;
-  font-size: 22px;
-  font-weight: 700;
-  text-decoration: underline;
-}
 
 .footer-distributed{
 	background: #666;
@@ -82,7 +54,6 @@ section {
 }
 
 .footer-distributed .footer-left,
-.footer-distributed .footer-center,
 .footer-distributed .footer-right{
 	display: inline-block;
 	vertical-align: top;
@@ -129,12 +100,6 @@ section {
 	margin: 0;
 }
 
-/* Footer Center */
-
-.footer-distributed .footer-center{
-	width: 35%;
-}
-
 .footer-distributed .footer-center i{
 	background-color:  #33383b;
 	color: #ffffff;
@@ -146,11 +111,6 @@ section {
 	line-height: 42px;
 	margin: 10px 15px;
 	vertical-align: middle;
-}
-
-.footer-distributed .footer-center i.fa-envelope{
-	font-size: 17px;
-	line-height: 38px;
 }
 
 .footer-distributed .footer-center p{
@@ -190,6 +150,7 @@ section {
 /* Footer Right */
 
 .footer-distributed .footer-right{
+	float: right;
 	width: 20%;
 }
 
@@ -239,7 +200,6 @@ section {
 	}
 
 	.footer-distributed .footer-left,
-	.footer-distributed .footer-center,
 	.footer-distributed .footer-right{
 		display: block;
 		width: 100%;
