@@ -1,4 +1,5 @@
 <script lang="ts">
+  import LineGraphCard from '../components/LineGraphCard.svelte';
   if (typeof document !== "undefined") {
   const sidebar = document.querySelector(".sidebar") as HTMLElement;
   const sidebarBtn = document.querySelector(".sidebarBtn") as HTMLElement;
@@ -49,13 +50,11 @@
       errorMessage = 'Failed to fetch data';
       });
   }
+
+  //Search
+
+
 </script>
-
-<!-- 
-      <h2>({bookings.first_Name}) {bookings.last_Name}</h2>
-      <p>{bookings.email}</p>
-      <hr> -->
-
 
 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 <body>
@@ -65,7 +64,7 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a href="@" class="active">
+          <a href="/adminService" class="active">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Bookings</span>
           </a>
@@ -106,71 +105,86 @@
       </div>
     </nav>
 <!--GET Bookings-->
-{#if errorMessage}
-  <h2>{errorMessage}</h2>
-{:else}
-  {#if booking && booking.length > 0}
-    {#each booking as bookings }
     <div class="home-content">
+      <div class="LineGraph">
+        <h2>Amount of Bookings in each Month</h2>
+        <LineGraphCard/>
+      </div>
       <div class="sales-boxes">
         <div class="recent-sales box">
           <!-- <div class="title">Bookings</div> -->
           <div class="sales-details">
             
             <ul class="details">
-              <li class="topic">First Name</li>
-              <li><a href="@">{bookings.first_Name}</a></li>
+              <li class="topic">Name</li>
             </ul>
             
             <ul class="details">
-            <li class="topic">Last Name</li>
-            <li><a href="@">{bookings.last_Name}</a></li>
+            <li class="topic">Surname</li>
+            
           </ul>
 
           <ul class="details">
             <li class="topic">ID Number</li>
-            <li><a href="@">{bookings.id_Number}</a></li>
+            
           </ul>
 
           <ul class="details">
             <li class="topic">Gender</li>
-            <li><a href="@">{bookings.gender}</a></li>
+            
           </ul>
 
           <ul class="details">
-            <li class="topic">Cellphone Number</li>
-            <li><a href="@">{bookings.cellphone_Number}</a></li>
+            <li class="topic">Cellphone</li>
+            
           </ul>
 
           <ul class="details">
             <li class="topic">Email</li>
-            <li><a href="@">{bookings.email}</a></li>
+            
           </ul>
 
           <ul class="details">
             <li class="topic">Civic Service</li>
-            <li><a href="@">{bookings.civic_Service}</a></li>
+            
           </ul>
 
           <ul class="details">
             <li class="topic">Date & Time</li>
-            <li><a href="@">{bookings.dateTime}</a></li>
+           
           </ul>
 
           </div>
+          {#if errorMessage}
+          <h2>{errorMessage}</h2>
+          {:else}
+          {#if booking && booking.length > 0}
+          {#each booking as bookings }
+            <ul class= "bookings">
+              <li><a href="@">{bookings.first_Name}</a></li>
+              <li><a href="@">{bookings.last_Name}</a></li>
+              <li><a href="@">{bookings.id_Number}</a></li>
+              <li><a href="@">{bookings.gender}</a></li>
+              <li><a href="@">{bookings.cellphone_Number}</a></li>
+              <li><a href="@">{bookings.email}</a></li>
+              <li><a href="@">{bookings.civic_Service}</a></li>
+              <li><a href="@">{bookings.dateTime}</a></li>
+            </ul>
+          
+          {/each}
+          {:else if booking}
+            <h2>No bookings found</h2>
+          {:else}
+            <h2>Loading...</h2>
+          {/if}
+          {/if}
           <div class="button">
-            <button on:click={() => deletebyID(bookings.IDNumber)}>Delete</button>
+            <!-- <button on:click={() => deletebyID(bookings.IDNumber)}>Delete</button> -->
           </div>
         </div>
       </div>
     </div>
-    {/each}
-    {:else if booking}
-      <h2>No bookings found</h2>
-    {:else}
-      <h2>Loading...</h2>
-    {/if}
-  {/if}
+ 
   </section>
 </body>
   
@@ -194,6 +208,7 @@
   height: 80px;
   display: flex;
   align-items: center;
+  padding-left: 20px;
 }
 .sidebar .logo-details i{
   font-size: 28px;
@@ -227,7 +242,7 @@
   background: #006636;
 }
 .sidebar .nav-links li a:hover{
-  background: #006636;
+  background-color: #F89D07;
 }
 .sidebar .nav-links li i{
   min-width: 60px;
@@ -361,11 +376,7 @@ nav .profile-details i{
   align-items: center;
   justify-content: space-between;
 }
-.sales-boxes .box .title{
-  font-size: 24px;
-  font-weight: 500;
-  /* margin-bottom: 10px; */
-}
+
 .sales-boxes .sales-details li.topic{
   font-size: 20px;
   font-weight: 500;
@@ -379,6 +390,24 @@ nav .profile-details i{
   color: #333;
   font-size: 400;
   text-decoration: none;
+}
+
+.sales-boxes .bookings li a{
+  font-size: 18px;
+  color: #333;
+  font-size: 400;
+  text-decoration: none;
+
+}
+.sales-boxes .bookings li{
+  list-style: none;
+  margin: 15px 0;
+
+}
+.home-content .sales-boxes .bookings{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .sales-boxes .box .button{
   width: 100%;
@@ -476,6 +505,10 @@ nav .profile-details i{
     left: 60px;
     width: calc(100% - 60px);
   }
+}
+.LineGraph{
+  padding-top: 20px;
+  background: #fff;
 }
 
 </style>

@@ -1,119 +1,312 @@
 <script lang="ts">
-	import Header from '../Header.svelte';
-	import Footer from '../Footer.svelte';
+	import Footer from "../Footer.svelte";
+import Header from "../Header.svelte";
 </script>
-<main>
-	<!--HOME PAGE-->
-   <Header/>
-	<div class="welcome">
-		<h2 class="welcome-h2">WELCOME TO e-HOME AFFAIRS</h2>
-		<p class="welcome-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam massa lacus,
-			 lobortis et posuere ac, faucibus sed metus. Sed efficitur dignissim purus. Pellentesque 
-			 sed varius metus, et malesuada leo.</p>
-		<button class="welcome-button">LEARN MORE</button>	 
-	</div>
-
-		<h2 class="slogan">EASY TO USE, CONVENIENT, AND JUST A CLICK AWAY</h2>
-    <!--ID Smart Card-->
-		<div class="id">
-			<!-- svelte-ignore a11y-missing-attribute -->
-			<img src="/src/Logo.png" class="logo"/>
-			<h3>ID SMART CARD</h3>
-			<p>Click on the button below to Book a slot for an ID Smart Card</p>
-			<button class="id-button" on:click={() => window.location.href='/booking'}>APPLY</button>
-
-		</div>
-    <!--Passport-->
-		<div>
-			<!-- svelte-ignore a11y-missing-attribute -->
-			<img src="/src/Logo.png" class="logo"/>
-			<h3>PASSPORT</h3>
-			<p>Click on the button below Book a Slot for a Passport</p>
-			<button class="passport-button" on:click={() => window.location.href='/booking'}>APPLY</button>
-
-		</div>
-
-	<!---======Note=======-->	
-	<div class="note">
-		<h4 class="note-h4">NOTE:</h4>
-		<p class="note-p">A branch visit is mandatory to capture and\or verify your biometric details, i.e.
-			fingerprints and signature. You can also finalise your application at any Home Affairs office once you have booked a slot .</p>
-	</div>
-
-	<!---======Footer=======-->
-	<Footer/>
-</main>
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-	/*=====Welcome=====*/
-	.welcome{
-		background-color: #006636;
-	}
-	.welcome-h2{
-		padding-left: 30px;
-		padding-top: 40px;
-		color: white;
-	}
-	.welcome-p{
-		padding-left: 30px;
-		color: white;
-	}
-	.welcome-button{
-		background-color: #d8eed9;
-		border-radius: 8px;
-		margin-left: 4%;
-		margin-bottom: 6%;
-	}
+body,h2,h3{font-family: "Raleway", sans-serif}
 
-	/*=====Application options=====*/
-	.slogan{
-		text-align: center;
-	}
-	
-	/*=====Home Boxes=====*/
-	.id{
-		border-color: #F89D07 ;
-		box-sizing: border-box;
-	}
-	.id-button{
-		background-color: #F89D07;
-		border-radius: 8px;
-	}
-	.passport-button{
-		background-color: #F89D07;
-		border-radius: 8px;
-	}
-	.collect-button{
-		background-color: #F89D07;
-		border-radius: 8px;
-	}
+body{
+  height: 100%;
+  line-height: 1.8;
+}
 
-	/*=====NOTE=====*/
-	.note{
-		background-color: #F89D07;
-	}
-	.note-h4{
-		padding-left: 30px;
-		padding-top: 20px;
-	}
-	.note-p{
-		padding-left: 30px;
-		padding-bottom: 30px;
-	}
+#user{
+	margin-top: 30px;
+}
 
-	main {
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-		font-family:"Arial";
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
+#booking{
+	text-align: center;
+	margin: auto;
+	width: 100%;
+}
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
 </style>
+
+<body>
+
+<!-- Navbar (sit on top) -->
+<Header/>
+
+
+<!-- Header with full-height image -->
+<header>
+<!-- Promo Section - "We know design" -->
+<div class="w3-container w3-green" style="padding:128px 16px">
+	<div class="w3-row-padding">
+	  <div class="w3-col m6">
+		<h3>WELCOME TO e-HOME AFFAIRS</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore.</p>
+		<p><a href="#about" class="w3-button w3-light-green"> Learn More</a></p>
+	  </div>
+	  <div class="w3-col m6">
+		<img class="w3-image w3-round-large" src="/w3images/phone_buildings.jpg" alt="Buildings" width="700" height="394">
+	  </div>
+	</div>
+  </div>
+</header>
+
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px" id="about">
+  <h3 class="w3-center">ABOUT THE COMPANY</h3>
+  <p class="w3-center w3-large">Key features of our company</p>
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-quarter">
+      <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
+      <p class="w3-large">Responsive</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Passion</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Design</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Support</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Booking Section -->
+<div class="w3-container" style="padding:128px 16px" id="booking">
+  <h3 class="w3-center">Make Online Bookings Here</h3>
+  <p class="w3-center w3-large">EASY TO USE, CONVENIENT, AND JUST A CLICK AWAY</p>
+  <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <i class="fa fa-user  w3-margin-bottom w3-jumbo" id="user" ></i> 
+        <div class="w3-container">
+          <h3>Smart Card</h3>
+          <p class="w3-opacity">Smart Card</p>
+          <p>Click on the button below to Book a slot for an ID Smart Card</p>
+          <p><button class="w3-button w3-orange w3-block" on:click={() => window.location.href='/booking'}>Book</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <i class="fa fa-user w3-margin-bottom w3-jumbo" id="user"></i> 
+        <div class="w3-container">
+          <h3>Passport</h3>
+          <p class="w3-opacity">Passport</p>
+          <p>Click on the button below Book a Slot for a Passport</p>
+          <p><button class="w3-button w3-orange w3-block" on:click={() => window.location.href='/booking'}> Book</button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Promo Section "Statistics" -->
+<div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64">
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">14+</span>
+    <br>Partners
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">55+</span>
+    <br>Projects Done
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">89+</span>
+    <br>Happy Clients
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">150+</span>
+    <br>Meetings
+  </div>
+</div>
+
+<!-- Work Section -->
+<div class="w3-container" style="padding:128px 16px" id="work">
+  <h3 class="w3-center">OUR WORK</h3>
+  <p class="w3-center w3-large">What we've done for people</p>
+
+  <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-col l3 m6">
+      <img src="/w3images/tech_mic.jpg" style="width:100%"  class="w3-hover-opacity" alt="A microphone">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="/w3images/tech_phone.jpg" style="width:100%"  class="w3-hover-opacity" alt="A phone">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="/w3images/tech_drone.jpg" style="width:100%"  class="w3-hover-opacity" alt="A drone">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="/w3images/tech_sound.jpg" style="width:100%"  class="w3-hover-opacity" alt="Soundbox">
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-section">
+    <div class="w3-col l3 m6">
+      <img src="/w3images/tech_tablet.jpg" style="width:100%"  class="w3-hover-opacity" alt="A tablet">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="/w3images/tech_camera.jpg" style="width:100%"  class="w3-hover-opacity" alt="A camera">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="/w3images/tech_typewriter.jpg" style="width:100%"  class="w3-hover-opacity" alt="A typewriter">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="/w3images/tech_tableturner.jpg" style="width:100%"  class="w3-hover-opacity" alt="A tableturner">
+    </div>
+  </div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" >
+  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+<!-- Skills Section -->
+<div class="w3-container w3-light-grey w3-padding-64">
+  <div class="w3-row-padding">
+    <div class="w3-col m6">
+      <h3>Our Skills.</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>
+      tempor incididunt ut labore et dolore.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>
+      tempor incididunt ut labore et dolore.</p>
+    </div>
+    <div class="w3-col m6">
+      <p class="w3-wide"><i class="fa fa-camera w3-margin-right"></i>Photography</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:90%">90%</div>
+      </div>
+      <p class="w3-wide"><i class="fa fa-desktop w3-margin-right"></i>Web Design</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:85%">85%</div>
+      </div>
+      <p class="w3-wide"><i class="fa fa-photo w3-margin-right"></i>Photoshop</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:75%">75%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Pricing Section -->
+<div class="w3-container w3-center w3-dark-grey" style="padding:128px 16px" id="pricing">
+  <h3>PRICING</h3>
+  <p class="w3-large">Choose a pricing plan that fits your needs.</p>
+  <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-third w3-section">
+      <ul class="w3-ul w3-white w3-hover-shadow">
+        <li class="w3-black w3-xlarge w3-padding-32">Basic</li>
+        <li class="w3-padding-16"><b>10GB</b> Storage</li>
+        <li class="w3-padding-16"><b>10</b> Emails</li>
+        <li class="w3-padding-16"><b>10</b> Domains</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">$ 10</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
+        </li>
+      </ul>
+    </div>
+    <div class="w3-third">
+      <ul class="w3-ul w3-white w3-hover-shadow">
+        <li class="w3-red w3-xlarge w3-padding-48">Pro</li>
+        <li class="w3-padding-16"><b>25GB</b> Storage</li>
+        <li class="w3-padding-16"><b>25</b> Emails</li>
+        <li class="w3-padding-16"><b>25</b> Domains</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">$ 25</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
+        </li>
+      </ul>
+    </div>
+    <div class="w3-third w3-section">
+      <ul class="w3-ul w3-white w3-hover-shadow">
+        <li class="w3-black w3-xlarge w3-padding-32">Premium</li>
+        <li class="w3-padding-16"><b>50GB</b> Storage</li>
+        <li class="w3-padding-16"><b>50</b> Emails</li>
+        <li class="w3-padding-16"><b>50</b> Domains</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">$ 50</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
+  <h3 class="w3-center">CONTACT</h3>
+  <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
+  <div style="margin-top:48px">
+    <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Chicago, US</p>
+    <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p>
+    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
+    <br>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
+      <p>
+        <button class="w3-button w3-black" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </p>
+    </form>
+    <!-- Image of location/map -->
+    <img src="/w3images/map.jpg" class="w3-image w3-greyscale" style="width:100%;margin-top:48px">
+  </div>
+</div>
+
+<!-- Footer -->
+<Footer/>
+ 
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+</script>
+
+</body>
