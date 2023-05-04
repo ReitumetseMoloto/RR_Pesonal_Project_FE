@@ -1,6 +1,13 @@
 <script lang="ts">
 	import Footer from "../Footer.svelte";
-import Header from "../Header.svelte";
+  import Header from "../Header.svelte";
+
+  function scrollToAbout(): void {
+  const aboutSection = document.querySelector<HTMLElement>('#about');
+  if (aboutSection !== null) {
+    aboutSection.scrollIntoView({ behavior: 'smooth' });
+  }
+}
 </script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -13,6 +20,9 @@ body{
   height: 100%;
   line-height: 1.8;
 }
+#header{
+  background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.thesouthafrican.com%2Fnews%2Foffbeat%2Fsouth-african-flag-display-laws%2F&psig=AOvVaw02cdr86kmrPVCnOPoV1vp4&ust=1683290185652000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCMD5seTW2_4CFQAAAAAdAAAAABAR");
+}
 
 #user{
 	margin-top: 30px;
@@ -21,6 +31,14 @@ body{
 #booking{
 	text-align: center;
 	width: 100%;
+}
+#image{
+  height: 450px;
+}
+.aboutbutton{
+  background-color:#F89D07;
+  border-radius: 20px;
+  size: 30px;
 }
 
 #learnMore{
@@ -39,16 +57,17 @@ body{
 <!-- Header with full-height image -->
 <header>
 <!-- Promo Section - "We know design" -->
-<div class="w3-container w3-highway-green" style="padding:128px 16px">
+<div class="w3-container w3-white" style="padding:128px 16px" id="header">
 	<div class="w3-row-padding">
 	  <div class="w3-col m6">
-		<h3>WELCOME TO e-HOME AFFAIRS</h3>
+		<h2>WELCOME TO e-HOME AFFAIRS</h2>
 		<p>The Department of Home Affairs is waging a war against long queues. As such we are introducing the Branch Appointment Booking System or BABS.</p>
 		<p>Citizens are encouraged to make use of the online booking system because in the near future, selected Home Affairs offices will process smart ID and passport applications only for clients who have booked an appointment through the Branch Appointment System.</p>
-		<p><a href="#about" class="w3-bar-item w3-button w3-orange" id="learnMore"> Learn More</a></p>
+		<!-- <a href="#about" class="w3-bar-item w3-button w3-orange" id="learnMore"> Learn More</a> -->
+    <button class="aboutbutton" on:click={scrollToAbout}>Go to About Section</button>
 	  </div>
-	  <div class="w3-col m6">
-		<img class="w3-image w3-round-large" src="/w3images/phone_buildings.jpg" alt="Buildings" width="700" height="394">
+	  <div class="w3-col m6" >
+		<img class="w3-image w3-round-large" id="image" src="https://img.freepik.com/free-vector/ux-ui-designer-online-service-platform-app-interface-improvement-user-modern-technology-concept-online-training-flat-vector-illustration_613284-484.jpg?w=740&t=st=1683204949~exp=1683205549~hmac=745f65772c31a6b7b0e40c3c75d95460d75ae62d6472c18a9b8ff7392d93b347" alt="Buildings" width="700" height="100">
 	  </div>
 	</div>
   </div>

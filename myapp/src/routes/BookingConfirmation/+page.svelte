@@ -1,4 +1,15 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<script lang="ts">
+    //Generating a booking reference
+  function generateBookingReferenceCode() {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let bookingReferenceCode = '';
+  for (let i = 0; i < 8; i++) {
+    bookingReferenceCode += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return bookingReferenceCode;
+}
+ let bookingReferenceCode = generateBookingReferenceCode();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <body>
     <div class="Confirmation">
         <h1 style="font-weight:bold">BOOKING CONFIRMATION</h1>
@@ -9,7 +20,7 @@
         <h1>Next Steps...</h1>
         <div class="block">
             <p>Booking Reference</p>
-            <h1>HWUSFRTG</h1>
+            <h1>{bookingReferenceCode}</h1>
             <p>Visit the nearest Home Affairs Branch and provide the above reference.</p>
             <p>A Reminder: Bring the required documents along with you.</p>
         </div>
@@ -19,7 +30,6 @@
 </body>
 
 <style>
-
 body{
     background: linear-gradient(-45deg, #dcd7e0, #fff);
     padding-top: 50px;

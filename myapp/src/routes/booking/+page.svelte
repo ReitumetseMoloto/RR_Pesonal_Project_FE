@@ -12,10 +12,41 @@
         civic_Service: '',
         dateTime: ''
     }
-
+//form validation and API calls
     function formHandler(event: Event){
         event.preventDefault()
 
+        const nameInput = document.querySelector('input[name="name"]') as HTMLInputElement;
+        const name = nameInput.value;
+        const surnameInput = document.querySelector('input[name="surname"]') as HTMLInputElement;
+        const surname = surnameInput.value;
+        const idInput = document.querySelector('input[name="idNumber"]') as HTMLInputElement;
+        const idNumber = idInput.value;
+        const cellInput = document.querySelector('input[name="cellphoneNumber"]') as HTMLInputElement;
+        const cellphoneNo = cellInput.value;
+        const emailInput = document.querySelector('input[name="email"]') as HTMLInputElement;
+        const email = emailInput.value;
+
+        if (!name && !surname) {
+       alert("Please enter all the fields");
+        }else if(!idNumber){
+            alert("Please enter all the fields");
+
+        }
+       else if(!cellphoneNo){
+            alert("Please enter all the fields");
+
+        }
+        else if(!email){
+            alert("Please enter all the fields");
+
+        }else if(idNumber.length !== 13){
+            alert("Invalid ID number");
+
+        }else if(cellphoneNo.length !== 10){
+            alert("Invalid cellpone number");
+        }
+       else{
         fetch('http://localhost:3000/bookings/post',{
             method: 'POST',
             headers: {
@@ -43,52 +74,18 @@
         .then(result => {
         const message = `Dear ${result.first_Name} your booking has been confirmed! See details below:\n Date and Time: ${result.dateTime} \n See you soon at the nearest Home Affairs Office.`;
         alert(message);});
-
-        const nameInput = document.querySelector('input[name="name"]') as HTMLInputElement;
-        const name = nameInput.value;
-        const surnameInput = document.querySelector('input[name="surname"]') as HTMLInputElement;
-        const surname = surnameInput.value;
-        const idInput = document.querySelector('input[name="idNumber"]') as HTMLInputElement;
-        const idNumber = idInput.value;
-        const cellInput = document.querySelector('input[name="cellphoneNumber"]') as HTMLInputElement;
-        const cellphoneNo = cellInput.value;
-        const emailInput = document.querySelector('input[name="email"]') as HTMLInputElement;
-        const email = emailInput.value;
-
-        if (!name && !surname) {
-       alert("Please enter all the fields");
-        }else if(!idNumber){
-            alert("Please enter all the fields");
-
-        }
-       else if(!cellphoneNo){
-            alert("Please enter all the fields");
-
-        }
-        else if(!email){
-            alert("Please enter all the fields");
-
-        }
-       else{
        window.location.href = "/BookingConfirmation";
-       }
-        
-
-        // var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-       
-
+       } 
   }
 
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <body>
 
     <div class="left">
 		<div class="contact">
 			<form class="bookingForm">
-                <h3>BOOK A SLOT HERE</h3>
+                <h1>BOOK A SLOT HERE</h1>
 
                 <label for="first_Name">First Name:</label>
 				<input type="text" name="name"  bind:value={postData.first_Name}>
@@ -96,14 +93,14 @@
 				<input type="text" name="surname"  bind:value={postData.last_Name}>
                 <label for="id_Number">ID Number:</label>
                 <input type="text" name="idNumber" bind:value={postData.id_Number}>
-                <label for="gender">Gender:</label>
+                <label for="gender">Gender:</label><br/>
                 <input type="radio" id="male" name="Gender" value="Male" bind:group={postData.gender}>
-                <label for="html">Male</label><br>
+                <label for="html">Male</label>
                 <input type="radio" id="female" name="Gender" value="Female" bind:group={postData.gender}>
-                <label for="css">Female</label><br>
+                <label for="css">Female</label>
                 <input type="radio" id="other" name="Gender" value="Other" bind:group={postData.gender}>
-                <label for="javascript">Other</label><br>
-                <label for="cellphoneNumber">Cellphone Number:</label>
+                <label for="javascript">Non-Binary</label><br/>
+                <label class="cell" for="cellphoneNumber">Cellphone Number:</label>
                 <input type="text" name="cellphoneNumber" bind:value={postData.cellphone_Number}>
                 <label for="civicService">Civic Service:</label><br/>
                 <select name="civicService" id="civicService" bind:value={postData.civic_Service}>
@@ -128,10 +125,10 @@
 body{
     background: linear-gradient(-45deg, #dcd7e0, #fff);
 }
-/* label{
-    font-weight: bold;
+#civicService {
+    font-size: 15px;
+}
 
-} */
 .left .contact{
 	display: flex;
     align-items: center;
@@ -140,11 +137,6 @@ body{
     height: 100%;
     width: 73%;
     margin: auto;
-}
-.left h3{
-  text-align: center;
-  margin-bottom: 40px;
-  margin-top: 30px;
 }
 .left input {
     border: none;
@@ -158,11 +150,11 @@ body{
     font-weight: 600;
     font-size: 14px;
 }
+
 .left{
 	background: white;
     width: 50%;
     margin: auto;
-
     outline-color: #F89D07;
     margin-top: 20px;
 }
