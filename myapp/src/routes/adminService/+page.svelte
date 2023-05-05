@@ -1,4 +1,21 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
+
+ // filter gender
+  // let genderStats = {};
+
+  // async function getGenderStats() {
+  //   try {
+  //     const response = await fetch('http://localhost:3000/bookings/total-gender');
+  //     const data = await response.json();
+  //     genderStats = data;
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
+
+  // onMount(getGenderStats);
+
   import LineGraphCard from '../components/LineGraphCard.svelte';
   if (typeof document !== "undefined") {
   const sidebar = document.querySelector(".sidebar") as HTMLElement;
@@ -13,7 +30,7 @@
     }
   }
 }
-  import { onMount } from 'svelte';
+  
 
   let booking: any[];
   let errorMessage: string;
@@ -33,26 +50,6 @@
       errorMessage = 'Failed to fetch data';
     }
   });
-
-  function deletebyID(IDNumber: any) {
-    fetch(`http://localhost:3000/bookings/${IDNumber}`, {
-      method: 'DELETE'
-    })
-      .then(response => {
-        if (response.ok) {
-          alert("Deleted succeffully");
-        } else {
-          throw new Error('Invalid data received');
-        }
-      })
-      .catch(error => {
-      console.error(error);
-      errorMessage = 'Failed to fetch data';
-      });
-  }
-
-  //Search
-
 
 </script>
 
@@ -104,6 +101,8 @@
         <i class='bx bx-chevron-down' ></i>
       </div>
     </nav>
+
+   
 <!--GET Bookings-->
     <div class="home-content">
       <div class="LineGraph">
@@ -370,10 +369,10 @@ nav .profile-details i{
   margin: 0 20px;
   border-radius: 12px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  align-content: normal;
 }
 .home-content .sales-boxes .sales-details{
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
@@ -402,6 +401,7 @@ nav .profile-details i{
 .sales-boxes .bookings li{
   list-style: none;
   margin: 15px 0;
+  align-items:center
 
 }
 .home-content .sales-boxes .bookings{

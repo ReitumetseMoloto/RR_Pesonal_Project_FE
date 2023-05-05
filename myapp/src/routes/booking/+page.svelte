@@ -2,6 +2,16 @@
     import Header from '../Header.svelte';
     import Footer from '../Footer.svelte';
     import SveltyPicker from 'svelty-picker';
+
+    //fomrat date and time
+    let booking: any[] = [];
+
+    const formatDateTime = (dateTimeString: string | number | Date) => {
+    const date = new Date(dateTimeString);
+    const formattedDate = date.toLocaleDateString();
+    const formattedTime = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return `${formattedDate} at ${formattedTime}`;
+  };
     const postData = {
         first_Name: '',
         last_Name: '',
@@ -10,7 +20,7 @@
         cellphone_Number: '',
         email: '',
         civic_Service: '',
-        dateTime: ''
+        date: ''
     }
 //form validation and API calls
     function formHandler(event: Event){
@@ -67,12 +77,12 @@
 
                 civic_Service: postData.civic_Service,
 
-                dateTime: postData.dateTime
+                date: postData.date
             })
         })
         .then(response => response.json())
         .then(result => {
-        const message = `Dear ${result.first_Name} your booking has been confirmed! See details below:\n Date and Time: ${result.dateTime} \n See you soon at the nearest Home Affairs Office.`;
+        const message = `Dear ${result.first_Name} your booking has been confirmed! See details below:\n Date and Time: ${result.date} \n See you soon at the nearest Home Affairs Office.`;
         alert(message);});
        window.location.href = "/BookingConfirmation";
        } 
@@ -81,6 +91,7 @@
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <body>
+    
 
     <div class="left">
 		<div class="contact">
@@ -98,8 +109,6 @@
                 <label for="html">Male</label>
                 <input type="radio" id="female" name="Gender" value="Female" bind:group={postData.gender}>
                 <label for="css">Female</label>
-                <input type="radio" id="other" name="Gender" value="Other" bind:group={postData.gender}>
-                <label for="javascript">Non-Binary</label><br/>
                 <label class="cell" for="cellphoneNumber">Cellphone Number:</label>
                 <input type="text" name="cellphoneNumber" bind:value={postData.cellphone_Number}>
                 <label for="civicService">Civic Service:</label><br/>
@@ -112,7 +121,7 @@
                 <input type="text" name="email" bind:value={postData.email}>
                 <label for="DateTime">Choose Date and Time:</label>
                 <!-- <input type="datetime-local" name="dateTime" bind:value={postData.dateTime}> -->
-                <SveltyPicker inputClasses="form-control" format="yyyy-mm-dd hh:ii" bind:value={postData.dateTime} placeholder='Select date and time' autoclose></SveltyPicker>
+                <SveltyPicker inputClasses="form-control" format="yyyy-mm-dd hh:ii" bind:value={postData.date} placeholder='Select date and time' autoclose></SveltyPicker>
 
 				<button class="submit" on:click={formHandler} >BOOK</button>
 			</form>
