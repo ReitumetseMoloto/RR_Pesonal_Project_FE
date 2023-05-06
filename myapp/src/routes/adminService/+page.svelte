@@ -54,6 +54,7 @@
 </script>
 
 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
   <div class="sidebar">
     <div class="logo-details">
@@ -78,12 +79,6 @@
             <span class="links_name">Team</span>
           </a>
         </li>
-        <li class="log_out">
-          <a href="/">
-            <i class='bx bx-log-out'></i>
-            <span class="links_name" >Log out</span>
-          </a>
-        </li>
       </ul>
   </div>
   <section class="home-section">
@@ -92,96 +87,86 @@
         <i class='bx bx-menu sidebarBtn'></i>
         <span class="dashboard">Dashboard</span>
       </div>
-      <div class="search-box">
-        <input type="text" placeholder="Search...">
-        <i class='bx bx-search' ></i>
-      </div>
       <div class="profile-details">
         <span class="admin_name">Administrator</span>
         <i class='bx bx-chevron-down' ></i>
+      </div>
+      <div class="logout">
+        <a href="/">
+          <i class='bx bx-log-out'></i>
+        </a>
       </div>
     </nav>
 
    
 <!--GET Bookings-->
     <div class="home-content">
-      <div class="LineGraph">
-        <h2>Amount of Bookings in each Month</h2>
-        <LineGraphCard/>
+      <div class="cards">
+      <div class="stats1">
+        <!-- svelte-ignore a11y-missing-attribute -->
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAATtJREFUSEvtlsFtAjEQRR8VgJS0gUQJpIPcEwlOXAkSnCEVJHQACO50AFRARCVQAehH9sqySFhsaxck5uidnf//zN/xVigpKiXh8gAurPN+q0dAF6glZrAHvoFPW9cFbgKrxIB+uRdgrUMXWGqHJjNjloiIW1c4fwKndvvREXQ/wB9AH3gGZkDnijEEK64DOw+oZ5yq4zbQ8p5PgYk5CwZ+A+Ze4QXwbs5cY9o0GfR3nkAwcB7FUu2G1EYrVkHNeAA8FTnjK3x0NjW41a9mlWq7KX6AJTAGtA4VDeDLgY02l+bkO9bWFwGtQYH7KzfKXFKxvdBnqdb8lauLwEaUuc59Jj6PjVH7H7/gGZdmrsKA7caJBbTv23qZ4W7iR0DsxEwOraaSauocjOOzTqa+8HPzfQDnblVsYmmtPgEUO1sf/uvFbAAAAABJRU5ErkJggg=="/>
+        <h3>60 579+</h3>
+        <p>Unabridged Certificates Issued</p>
       </div>
-      <div class="sales-boxes">
-        <div class="recent-sales box">
-          <!-- <div class="title">Bookings</div> -->
-          <div class="sales-details">
-            
-            <ul class="details">
-              <li class="topic">Name</li>
-            </ul>
-            
-            <ul class="details">
-            <li class="topic">Surname</li>
-            
-          </ul>
-
-          <ul class="details">
-            <li class="topic">ID Number</li>
-            
-          </ul>
-
-          <ul class="details">
-            <li class="topic">Gender</li>
-            
-          </ul>
-
-          <ul class="details">
-            <li class="topic">Cellphone</li>
-            
-          </ul>
-
-          <ul class="details">
-            <li class="topic">Email</li>
-            
-          </ul>
-
-          <ul class="details">
-            <li class="topic">Civic Service</li>
-            
-          </ul>
-
-          <ul class="details">
-            <li class="topic">Date & Time</li>
-           
-          </ul>
-
-          </div>
-          {#if errorMessage}
+      <div class="stats2">
+        <!-- svelte-ignore a11y-missing-attribute -->
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAATtJREFUSEvtlsFtAjEQRR8VgJS0gUQJpIPcEwlOXAkSnCEVJHQACO50AFRARCVQAehH9sqySFhsaxck5uidnf//zN/xVigpKiXh8gAurPN+q0dAF6glZrAHvoFPW9cFbgKrxIB+uRdgrUMXWGqHJjNjloiIW1c4fwKndvvREXQ/wB9AH3gGZkDnijEEK64DOw+oZ5yq4zbQ8p5PgYk5CwZ+A+Ze4QXwbs5cY9o0GfR3nkAwcB7FUu2G1EYrVkHNeAA8FTnjK3x0NjW41a9mlWq7KX6AJTAGtA4VDeDLgY02l+bkO9bWFwGtQYH7KzfKXFKxvdBnqdb8lauLwEaUuc59Jj6PjVH7H7/gGZdmrsKA7caJBbTv23qZ4W7iR0DsxEwOraaSauocjOOzTqa+8HPzfQDnblVsYmmtPgEUO1sf/uvFbAAAAABJRU5ErkJggg=="/>
+        <h3>50 699+</h3>
+        <p>Passports Issued</p>
+      </div>
+      <div class="stats3">
+         <!-- svelte-ignore a11y-missing-attribute -->
+         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAATtJREFUSEvtlsFtAjEQRR8VgJS0gUQJpIPcEwlOXAkSnCEVJHQACO50AFRARCVQAehH9sqySFhsaxck5uidnf//zN/xVigpKiXh8gAurPN+q0dAF6glZrAHvoFPW9cFbgKrxIB+uRdgrUMXWGqHJjNjloiIW1c4fwKndvvREXQ/wB9AH3gGZkDnijEEK64DOw+oZ5yq4zbQ8p5PgYk5CwZ+A+Ze4QXwbs5cY9o0GfR3nkAwcB7FUu2G1EYrVkHNeAA8FTnjK3x0NjW41a9mlWq7KX6AJTAGtA4VDeDLgY02l+bkO9bWFwGtQYH7KzfKXFKxvdBnqdb8lauLwEaUuc59Jj6PjVH7H7/gGZdmrsKA7caJBbTv23qZ4W7iR0DsxEwOraaSauocjOOzTqa+8HPzfQDnblVsYmmtPgEUO1sf/uvFbAAAAABJRU5ErkJggg=="/>
+         <h3>1M+</h3>
+         <p>ID Smart Cards Issued</p>
+      </div>
+      <div class="stats4">
+        <!-- svelte-ignore a11y-missing-attribute -->
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAUpJREFUSEvtlusNwjAMhK8TwAgwAYwAG7ABYgOYhBVgBCaADYANGAE2QIfiKlhpc31IFRL51zT2Fz9iu8BAqxiIiybgFYBZi4veAJy8nAo+AFi3gJoI5TexvAKeA7h2gJroFMDDPhTwAsA5CCwBXBpcolL258CTKObH4MLUXu8WpxSqe59ItXW1CundYjW/fg88Dk+Jb5mLVYhP6pkwubfk8lBjVcHVuNcml4feA9VqdQreGZyCUikXq1Yd3EdATq4qqMWU/5vAJXAOatZUwblvHcyqmQTeAthHvrKGQIXmXsaa1scKKbILGe+biQTmk6EbR64T5ZLmFS5iHqO4XVoCUyAHySp02dUJTEviAuJdXdejO4FTdVkdDv7gcmzy/dg/E7X9Kee+csGD+5ooUxfJTpkc3C2LFUuUMxxrOVuXSxl9FMWNzwwGfgM9zZgfCv1kRgAAAABJRU5ErkJggg=="/>
+        <h3>412M+</h3>
+        <p>Home Affairs Branches</p>
+     </div>
+    </div>
+    
+    <div class="table">
+      <h3>Booking Details</h3>
+      <table>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>ID Number</th>
+          <th>Gender</th>
+          <th>Cellphone</th>
+          <th>Email</th>
+          <th>Civic Service</th>
+          <th>Date & Time</th>
+        {#if errorMessage}
           <h2>{errorMessage}</h2>
           {:else}
           {#if booking && booking.length > 0}
           {#each booking as bookings }
-            <ul class= "bookings">
-              <li><a href="@">{bookings.first_Name}</a></li>
-              <li><a href="@">{bookings.last_Name}</a></li>
-              <li><a href="@">{bookings.id_Number}</a></li>
-              <li><a href="@">{bookings.gender}</a></li>
-              <li><a href="@">{bookings.cellphone_Number}</a></li>
-              <li><a href="@">{bookings.email}</a></li>
-              <li><a href="@">{bookings.civic_Service}</a></li>
-              <li><a href="@">{bookings.dateTime}</a></li>
-            </ul>
-          
-          {/each}
+        <tr>
+          <td>{bookings.first_Name}</td>
+          <td>{bookings.last_Name}</td>
+          <td>{bookings.id_Number}</td>
+          <td>{bookings.gender}</td>
+          <td>{bookings.cellphone_Number}</td>
+          <td>{bookings.email}</td>
+          <td>{bookings.civic_Service}</td>
+          <td>{bookings.dateTime}</td>
+        </tr>
+        {/each}
           {:else if booking}
             <h2>No bookings found</h2>
           {:else}
             <h2>Loading...</h2>
           {/if}
           {/if}
+      </table>
+    </div>
+  
           <div class="button">
             <!-- <button on:click={() => deletebyID(bookings.IDNumber)}>Delete</button> -->
           </div>
-        </div>
-      </div>
     </div>
  
   </section>
@@ -196,11 +181,101 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+.table{
+  background-color: white;
+  margin-left: 20px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-left: 20px;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color:lightgray;}
+img{
+  margin-top: 20px;
+  margin-left: 20px;
+}
+h3{
+  margin-top: 25px;
+  margin-left: 20px;
+}
+p{
+  margin-left: 20px;
+  margin-right: 20px;
+
+}
+.stats1{
+  margin-left: 20px;
+  background: linear-gradient(212.38deg, rgb(124, 225, 144) 0%, #d7c34d 100%),url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clinithink.com%2F&psig=AOvVaw1kd0yT1HUgd6Qjk6xP6r2q&ust=1679733419021000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC96-eU9P0CFQAAAAAdAAAAABAS);
+  height: 150px;
+  width: 300px;
+  border-radius:6px ;
+}
+.stats2{
+  margin-left: 20px;
+  background: linear-gradient(212.38deg, rgb(124, 225, 144) 0%, #84e9ed 100%),url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clinithink.com%2F&psig=AOvVaw1kd0yT1HUgd6Qjk6xP6r2q&ust=1679733419021000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC96-eU9P0CFQAAAAAdAAAAABAS);
+  height: 150px;
+  width: 300px;
+  border-radius:6px ;
+}
+.stats3{
+  margin-left: 20px;
+  background: linear-gradient(212.38deg, rgb(124, 225, 144) 0%, #e884ed 100%),url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clinithink.com%2F&psig=AOvVaw1kd0yT1HUgd6Qjk6xP6r2q&ust=1679733419021000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC96-eU9P0CFQAAAAAdAAAAABAS);
+  height: 150px;
+  width: 300px;
+  border-radius:6px ;
+}
+.stats4{
+  margin-left: 20px;
+  background: linear-gradient(212.38deg, rgb(124, 225, 144) 0%, #ed8484 100%),url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clinithink.com%2F&psig=AOvVaw1kd0yT1HUgd6Qjk6xP6r2q&ust=1679733419021000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC96-eU9P0CFQAAAAAdAAAAABAS);
+  height: 150px;
+  width: 300px;
+  border-radius:6px ;
+}
+
+.cards{
+  display: flex;
+  justify-content: space-between;
+  height: 200px;
+  align-items: center;
+  /* position: fixed;
+  width: calc(100% - 240px);
+  left: 240px;
+  z-index: 100;
+  padding: 0 20px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease; */
+}
+.logout{
+  display: flex;
+  align-items: center;
+  background: #F5F6FA;
+  border: 2px solid #EFEEF1;
+  border-radius: 6px;
+  height: 50px;
+  min-width: 50px;
+  padding: 0 15px 0 2px;
+  
+}
+.logout a{
+  font-size: 25px;
+  font-weight: 500;
+  color: #333;
+  margin: 0 10px;
+  white-space: nowrap;
+}
 .sidebar{
   position: fixed;
   height: 100%;
   width: 240px;
-  background: #006636;
+  background: linear-gradient(212.38deg, #F89D07 0%, #006636 100%),url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clinithink.com%2F&psig=AOvVaw1kd0yT1HUgd6Qjk6xP6r2q&ust=1679733419021000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC96-eU9P0CFQAAAAAdAAAAABAS);
   transition: all 0.5s ease;
 }
 .sidebar .logo-details{
