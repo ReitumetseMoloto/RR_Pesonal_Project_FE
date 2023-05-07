@@ -20,9 +20,7 @@ body{
   height: 100%;
   line-height: 1.8;
 }
-#header{
-  background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.thesouthafrican.com%2Fnews%2Foffbeat%2Fsouth-african-flag-display-laws%2F&psig=AOvVaw02cdr86kmrPVCnOPoV1vp4&ust=1683290185652000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCMD5seTW2_4CFQAAAAAdAAAAABAR");
-}
+
 
 #user{
 	margin-top: 30px;
@@ -36,16 +34,23 @@ body{
   height: 450px;
 }
 .aboutbutton{
-  background-color:#F89D07;
+  background-color:#FB9646;
   border-radius: 20px;
-  size: 30px;
+  size: 20px;
+  margin-top: 25px;
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
 }
 
-#learnMore{
-	margin-top: 40px;
+#welcome{
+  margin-top: 100px;
 }
 #stats{
-	background: linear-gradient(212.38deg, #F89D07 0%, #006636 100%),url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clinithink.com%2F&psig=AOvVaw1kd0yT1HUgd6Qjk6xP6r2q&ust=1679733419021000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC96-eU9P0CFQAAAAAdAAAAABAS);
+	background: linear-gradient(212.38deg, #FB9646 0%, #006636 100%),url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clinithink.com%2F&psig=AOvVaw1kd0yT1HUgd6Qjk6xP6r2q&ust=1679733419021000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC96-eU9P0CFQAAAAAdAAAAABAS);
 }
 </style>
 
@@ -57,9 +62,9 @@ body{
 <!-- Header with full-height image -->
 <header>
 <!-- Promo Section - "We know design" -->
-<div class="w3-container w3-white" style="padding:128px 16px" id="header">
+<div class="w3-container w3-white" style="padding:128px 16px; height:800px" id="header">
 	<div class="w3-row-padding">
-	  <div class="w3-col m6">
+	  <div class="w3-col m6" id="welcome">
 		<h2>WELCOME TO e-HOME AFFAIRS</h2>
 		<p>The Department of Home Affairs is waging a war against long queues. As such we are introducing the Branch Appointment Booking System or BABS.</p>
 		<p>Citizens are encouraged to make use of the online booking system because in the near future, selected Home Affairs offices will process smart ID and passport applications only for clients who have booked an appointment through the Branch Appointment System.</p>
@@ -67,7 +72,7 @@ body{
     <button class="aboutbutton" on:click={scrollToAbout}>Go to About Section</button>
 	  </div>
 	  <div class="w3-col m6" >
-		<img class="w3-image w3-round-large" id="image" src="https://img.freepik.com/free-vector/ux-ui-designer-online-service-platform-app-interface-improvement-user-modern-technology-concept-online-training-flat-vector-illustration_613284-484.jpg?w=740&t=st=1683204949~exp=1683205549~hmac=745f65772c31a6b7b0e40c3c75d95460d75ae62d6472c18a9b8ff7392d93b347" alt="Buildings" width="700" height="100">
+		<img class="w3-image w3-round-large" id="image" src="https://img.freepik.com/free-vector/digital-device-users-spending-time-together_74855-5234.jpg?w=1380&t=st=1683473053~exp=1683473653~hmac=c3d580977998ed883b205d34053f581921c1bcf495bd3a27743b75ed89d1718c" alt="Home_Image" width="700" height="100">
 	  </div>
 	</div>
   </div>
@@ -237,18 +242,6 @@ body{
     <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: 0800 60 11 90</p>
     <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: hacc@dha.gov.za </p>
 	<p><i class="fa fa-clock-o fa-fw w3-xxlarge w3-margin-right"> </i> Office Hours: Monday to Friday: 8:00 to 15:30- Every last Wednesday of the month: 9:00 to 15:30 </p>
-    <br>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
-      <p>
-        <button class="w3-button w3-black" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-      </p>
-    </form>
   </div>
 </div>
 

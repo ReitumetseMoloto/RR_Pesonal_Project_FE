@@ -82,7 +82,7 @@
         })
         .then(response => response.json())
         .then(result => {
-        const message = `Dear ${result.first_Name} your booking has been confirmed! See details below:\n Date and Time: ${result.date} \n See you soon at the nearest Home Affairs Office.`;
+        const message = `Dear ${result.first_Name} your booking has been confirmed! \n See you soon at the nearest Home Affairs Office.`;
         alert(message);});
        window.location.href = "/BookingConfirmation";
        } 
@@ -90,11 +90,16 @@
 
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-highway.css">
 <body>
-    
 
     <div class="left">
+        
 		<div class="contact">
+           
 			<form class="bookingForm">
                 <h1>BOOK A SLOT HERE</h1>
 
@@ -108,7 +113,7 @@
                 <input type="radio" id="male" name="Gender" value="Male" bind:group={postData.gender}>
                 <label for="html">Male</label>
                 <input type="radio" id="female" name="Gender" value="Female" bind:group={postData.gender}>
-                <label for="css">Female</label>
+                <label for="css">Female</label><br/>
                 <label class="cell" for="cellphoneNumber">Cellphone Number:</label>
                 <input type="text" name="cellphoneNumber" bind:value={postData.cellphone_Number}>
                 <label for="civicService">Civic Service:</label><br/>
@@ -128,12 +133,41 @@
           
 		</div>
 	</div>
+    <header class="home-header">
+        <div class="w3-top">
+        <div class="w3-bar w3-white w3-card" id="myNavbar">
+          <a href="#home" class="w3-bar-item w3-button w3-wide">HOME AFFAIRS</a>
+          <div class="w3-right w3-hide-small">
+            <a href="/home" class="w3-bar-item w3-button">HOME</a>
+            <a href="/" class="w3-bar-item w3-button" id="logout">
+                <i class='bx bx-log-out'></i>
+                <span class="links_name" >Log out</span>
+              </a>
+          </div>
+        </div>
+        </div>
+    </header>
 </body>
 
 <style>
 body{
     background: linear-gradient(-45deg, #dcd7e0, #fff);
 }
+
+.home-header{
+		width:100%;
+		height:100%;
+		position: fixed;
+		left: 0;
+		z-index: black;
+	}
+	a{
+		font-size: medium;
+		size: 50px;
+	}
+	#logout{
+		background-color: #FB9646;
+	}
 #civicService {
     font-size: 15px;
 }
@@ -165,7 +199,7 @@ body{
     width: 50%;
     margin: auto;
     outline-color: #F89D07;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 .submit {
     border: none;
@@ -174,7 +208,7 @@ body{
     display: block;
     margin: auto;
     margin-top: 30px;
-    background: linear-gradient(212.38deg, #F89D07 0%, #006636 100%),url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clinithink.com%2F&psig=AOvVaw1kd0yT1HUgd6Qjk6xP6r2q&ust=1679733419021000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC96-eU9P0CFQAAAAAdAAAAABAS);
+    background: linear-gradient(212.38deg, #FB9646 0%, #006636 100%),url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clinithink.com%2F&psig=AOvVaw1kd0yT1HUgd6Qjk6xP6r2q&ust=1679733419021000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC96-eU9P0CFQAAAAAdAAAAABAS);
     color: #fff;
     font-weight: bold;
     margin-bottom: 30px;

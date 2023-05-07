@@ -88,6 +88,7 @@
         <span class="dashboard">Dashboard</span>
       </div>
       <div class="profile-details">
+        
         <span class="admin_name">Administrator</span>
         <i class='bx bx-chevron-down' ></i>
       </div>
@@ -163,6 +164,7 @@
           {/if}
       </table>
     </div>
+    <p class="footer-company-name">Department of Home Affairs © 2023</p>
   
           <div class="button">
             <!-- <button on:click={() => deletebyID(bookings.IDNumber)}>Delete</button> -->
@@ -180,6 +182,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+}
+.footer-company-name{
+  text-align: center;
+  margin-top: 30px;
 }
 .table{
   background-color: white;

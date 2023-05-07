@@ -8,12 +8,12 @@
 	  <a href="#home" class="w3-bar-item w3-button w3-wide">HOME AFFAIRS</a>
 	  <!-- Right-sided navbar links -->
 	  <div class="w3-right w3-hide-small">
-		<a href="#home" class="w3-bar-item w3-button">HOME</a>
+		<a href="#header" class="w3-bar-item w3-button">HOME</a>
 		<a href="#about" class="w3-bar-item w3-button">ABOUT</a>
 		<a href="#booking" class="w3-bar-item w3-button"><i class="fa fa-user"></i> BOOKING</a>
 		<a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i>CIVIC SERVICES</a>
 		<a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
-		<a href="/" class="w3-bar-item w3-button w3-orange">
+		<a href="/" class="w3-bar-item w3-button" id="logout">
 			<i class='bx bx-log-out'></i>
 			<span class="links_name" >Log out</span>
 		  </a>
@@ -35,6 +35,9 @@
 	a{
 		font-size: medium;
 		size: 50px;
+	}
+	#logout{
+		background-color: #FB9646;
 	}
 
 </style>

@@ -3,7 +3,7 @@
 
     <div class="footer-left">
 
-        <h3>Company<span>logo</span></h3>
+        <h3>Home<span>Affairs</span></h3>
 
         <p class="footer-links">
             <a href="#about" class="link-1">About</a>
@@ -24,15 +24,6 @@
             <span>About Home Affairs</span>
 			The Department of Home Affairs offers a multitude of services to the citizens of South Africa, as well as foreigners who wish to visit, work or stay in South Africa.
         </p>
-
-        <div class="footer-icons">
-
-            <a href="/"><i class="fa fa-facebook"></i></a>
-            <a href="/"><i class="fa fa-twitter"></i></a>
-            <a href="/"><i class="fa fa-linkedin"></i></a>
-            <a href="/"><i class="fa fa-github"></i></a>
-
-        </div>
     </div>
 </footer>
 <style>
@@ -74,7 +65,7 @@
 }
 
 .footer-distributed h3 span{
-	color:  #F89D07;
+	color:  #FB9646;
 }
 
 /* Footer links */
