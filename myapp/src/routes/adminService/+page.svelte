@@ -1,21 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
- // filter gender
-  // let genderStats = {};
-
-  // async function getGenderStats() {
-  //   try {
-  //     const response = await fetch('http://localhost:3000/bookings/total-gender');
-  //     const data = await response.json();
-  //     genderStats = data;
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
-
-  // onMount(getGenderStats);
-
   import LineGraphCard from '../components/LineGraphCard.svelte';
   if (typeof document !== "undefined") {
   const sidebar = document.querySelector(".sidebar") as HTMLElement;
@@ -51,6 +36,11 @@
     }
   });
 
+  function sortBookings(): void {
+  booking = booking.sort((a, b) => new Date(b.dateTime).getTime() - new Date(a.dateTime).getTime());
+}
+
+
 </script>
 
 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -64,7 +54,7 @@
         <li>
           <a href="/adminService" class="active">
             <i class='bx bx-grid-alt' ></i>
-            <span class="links_name">Bookings</span>
+            <span class="links_name">Dashboard</span>
           </a>
         </li>
         <li>
@@ -80,6 +70,7 @@
           </a>
         </li>
       </ul>
+      <img src="https://www.pikpng.com/pngl/b/442-4423750_unit1mod1-south-africa-home-affairs-clipart.png" alt="logo" class="logo">
   </div>
   <section class="home-section">
     <nav>
@@ -130,7 +121,10 @@
     </div>
     
     <div class="table">
+      <div class="titleSort">
       <h3>Booking Details</h3>
+      <button class="sort" on:click={sortBookings}>Sort by Date</button>
+      </div>
       <table>
           <th>Name</th>
           <th>Surname</th>
@@ -183,6 +177,30 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+.logo{
+		width: 100px;
+		height: 110px;
+    margin-left: 60px;
+    margin-top: 350px;
+	}
+.titleSort{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.sort{
+  float: right;
+  background-color:#FB9646;
+  size: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
 .footer-company-name{
   text-align: center;
   margin-top: 30px;
@@ -211,6 +229,7 @@ img{
 h3{
   margin-top: 25px;
   margin-left: 20px;
+  color: #FB9646;
 }
 p{
   margin-left: 20px;
@@ -219,31 +238,39 @@ p{
 }
 .stats1{
   margin-left: 20px;
-  background: linear-gradient(212.38deg, rgb(124, 225, 144) 0%, #d7c34d 100%),url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clinithink.com%2F&psig=AOvVaw1kd0yT1HUgd6Qjk6xP6r2q&ust=1679733419021000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC96-eU9P0CFQAAAAAdAAAAABAS);
+  background: white;
   height: 150px;
   width: 300px;
   border-radius:6px ;
+  border-color: #FB9646;
+  border-style: solid;
 }
 .stats2{
   margin-left: 20px;
-  background: linear-gradient(212.38deg, rgb(124, 225, 144) 0%, #84e9ed 100%),url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clinithink.com%2F&psig=AOvVaw1kd0yT1HUgd6Qjk6xP6r2q&ust=1679733419021000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC96-eU9P0CFQAAAAAdAAAAABAS);
   height: 150px;
   width: 300px;
   border-radius:6px ;
+  border-color: #FB9646;
+  border-style: solid;
+  background: white;
 }
 .stats3{
   margin-left: 20px;
-  background: linear-gradient(212.38deg, rgb(124, 225, 144) 0%, #e884ed 100%),url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clinithink.com%2F&psig=AOvVaw1kd0yT1HUgd6Qjk6xP6r2q&ust=1679733419021000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC96-eU9P0CFQAAAAAdAAAAABAS);
   height: 150px;
   width: 300px;
   border-radius:6px ;
+  border-color: #FB9646;
+  border-style: solid;
+  background: white;
 }
 .stats4{
   margin-left: 20px;
-  background: linear-gradient(212.38deg, rgb(124, 225, 144) 0%, #ed8484 100%),url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clinithink.com%2F&psig=AOvVaw1kd0yT1HUgd6Qjk6xP6r2q&ust=1679733419021000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC96-eU9P0CFQAAAAAdAAAAABAS);
   height: 150px;
   width: 300px;
   border-radius:6px ;
+  border-color: #FB9646;
+  border-style: solid;
+  background: white;
 }
 
 .cards{
@@ -251,13 +278,6 @@ p{
   justify-content: space-between;
   height: 200px;
   align-items: center;
-  /* position: fixed;
-  width: calc(100% - 240px);
-  left: 240px;
-  z-index: 100;
-  padding: 0 20px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  transition: all 0.5s ease; */
 }
 .logout{
   display: flex;
@@ -281,7 +301,7 @@ p{
   position: fixed;
   height: 100%;
   width: 240px;
-  background: linear-gradient(212.38deg, #F89D07 0%, #006636 100%),url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clinithink.com%2F&psig=AOvVaw1kd0yT1HUgd6Qjk6xP6r2q&ust=1679733419021000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC96-eU9P0CFQAAAAAdAAAAABAS);
+  background: linear-gradient(212.38deg, #FB9646 0%, #006636 100%),url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clinithink.com%2F&psig=AOvVaw1kd0yT1HUgd6Qjk6xP6r2q&ust=1679733419021000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC96-eU9P0CFQAAAAAdAAAAABAS);
   transition: all 0.5s ease;
 }
 .sidebar .logo-details{
@@ -336,11 +356,6 @@ p{
   font-weight: 400;
   white-space: nowrap;
 }
-.sidebar .nav-links .log_out{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
 .home-section{
   position: relative;
   background: #f5f5f5;
@@ -350,6 +365,7 @@ p{
   transition: all 0.5s ease;
 }
 .home-section nav{
+  margin-left: 15px;
   display: flex;
   justify-content: space-between;
   height: 80px;
@@ -378,38 +394,7 @@ nav .sidebar-button i{
   font-size: 35px;
   margin-right: 10px;
 }
-.home-section nav .search-box{
-  position: relative;
-  height: 50px;
-  max-width: 550px;
-  width: 100%;
-  margin: 0 20px;
-}
-nav .search-box input{
-  height: 100%;
-  width: 100%;
-  outline: none;
-  background: #F5F6FA;
-  border: 2px solid #EFEEF1;
-  border-radius: 6px;
-  font-size: 18px;
-  padding: 0 15px;
-}
-nav .search-box .bx-search{
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  background: #F89D07;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-radius: 4px;
-  line-height: 40px;
-  text-align: center;
-  color: #fff;
-  font-size: 22px;
-  transition: all 0.4 ease;
-}
+
 .home-section nav .profile-details{
   display: flex;
   align-items: center;
@@ -419,6 +404,7 @@ nav .search-box .bx-search{
   height: 50px;
   min-width: 190px;
   padding: 0 15px 0 2px;
+  margin-left: 860px;
 }
 nav .profile-details .admin_name{
   font-size: 15px;
@@ -436,35 +422,8 @@ nav .profile-details i{
   padding-top: 104px;
 }
 
-.home-content .sales-boxes{
-  display: flex;
-  justify-content: space-between;
-  /* padding: 0 20px; */
-}
-
 /* left box */
-.home-content .sales-boxes .recent-sales{
-  width: 100%;
-  background: #fff;
-  padding: 20px 30px;
-  margin: 0 20px;
-  border-radius: 12px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  align-content: normal;
-}
-.home-content .sales-boxes .sales-details{
-  display: flex;
-  justify-content: space-between;
-}
 
-.sales-boxes .sales-details li.topic{
-  font-size: 20px;
-  font-weight: 500;
-}
-.sales-boxes .sales-details li{
-  list-style: none;
-  margin: 8px 0;
-}
 .sales-boxes .sales-details li a{
   font-size: 18px;
   color: #333;
@@ -479,43 +438,10 @@ nav .profile-details i{
   text-decoration: none;
 
 }
-.sales-boxes .bookings li{
-  list-style: none;
-  margin: 15px 0;
-  align-items:center
 
-}
-.home-content .sales-boxes .bookings{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.sales-boxes .box .button{
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-.sales-boxes .box .button a{
-  color: #fff;
-  background: #006636;
-  padding: 4px 12px;
-  font-size: 15px;
-  font-weight: 400;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-.sales-boxes .box .button a:hover{
-  background:  #006636;
-}
+
 
 /* Right box */
-.sales-boxes .top-sales li{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 10px 0;
-}
 
 .sales-boxes .top-sales li a{
   display: flex;
@@ -543,16 +469,7 @@ nav .profile-details i{
     left: 220px;
   }
 }
-@media (max-width: 1150px) {
-  .home-content .sales-boxes{
-    flex-direction: column;
-  }
-  .home-content .sales-boxes .box{
-    width: 100%;
-    overflow-x: scroll;
-    margin-bottom: 30px;
-  }
-}
+
 @media (max-width: 700px) {
   nav .sidebar-button .dashboard,
   nav .profile-details .admin_name,
@@ -563,9 +480,7 @@ nav .profile-details i{
     height: 50px;
     min-width: 40px;
   }
-  .home-content .sales-boxes .sales-details{
-    width: 560px;
-  }
+ 
 }
 @media (max-width: 550px) {
 
@@ -587,10 +502,7 @@ nav .profile-details i{
     width: calc(100% - 60px);
   }
 }
-.LineGraph{
-  padding-top: 20px;
-  background: #fff;
-}
+
 
 </style>
 

@@ -5,9 +5,11 @@
 	<!-- Navbar (sit on top) -->
     <div class="w3-top">
 	<div class="w3-bar w3-white w3-card" id="myNavbar">
-	  <a href="#home" class="w3-bar-item w3-button w3-wide">HOME AFFAIRS</a>
+		<img src="https://www.pikpng.com/pngl/b/442-4423750_unit1mod1-south-africa-home-affairs-clipart.png" alt="logo">
+	  <!-- svelte-ignore a11y-missing-attribute -->
+	  <a>HOME AFFAIRS</a>
 	  <!-- Right-sided navbar links -->
-	  <div class="w3-right w3-hide-small">
+	  <div class="w3-right w3-hide-small" id="nav">
 		<a href="#header" class="w3-bar-item w3-button">HOME</a>
 		<a href="#about" class="w3-bar-item w3-button">ABOUT</a>
 		<a href="#booking" class="w3-bar-item w3-button"><i class="fa fa-user"></i> BOOKING</a>
@@ -23,6 +25,13 @@
 </header>
 
 <style>
+	img{
+		margin-left: 20px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		width: 40px;
+		height: 50px;
+	}
 		/*=====Header=====*/
 	.home-header{
 		width:100%;
@@ -38,6 +47,10 @@
 	}
 	#logout{
 		background-color: #FB9646;
+	}
+	#nav{
+		padding-top: 13px;
+		padding-right: 5px;
 	}
 
 </style>

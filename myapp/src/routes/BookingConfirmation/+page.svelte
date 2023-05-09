@@ -12,6 +12,7 @@
 </script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <body>
     <div class="Confirmation">
+        <img src="https://www.pikpng.com/pngl/b/442-4423750_unit1mod1-south-africa-home-affairs-clipart.png" alt="logo">
         <h1 style="font-weight:bold">BOOKING CONFIRMATION</h1>
         <p>Thank you for using our Online Booking System.</p>
         <hr>
@@ -32,8 +33,12 @@
 <style>
 body{
     background: linear-gradient(-45deg, #dcd7e0, #fff);
-    padding-top: 50px;
+    padding-top: 30px;
 }
+img{
+		width: 50px;
+		height: 60px;
+	}
 .Confirmation{
     text-align: center;
 }

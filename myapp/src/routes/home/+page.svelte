@@ -19,6 +19,7 @@ body,h3{font-family: "Raleway", sans-serif}
 body{
   height: 100%;
   line-height: 1.8;
+  scroll-behavior: smooth;
 }
 
 
@@ -52,6 +53,31 @@ body{
 #stats{
 	background: linear-gradient(212.38deg, #FB9646 0%, #006636 100%),url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clinithink.com%2F&psig=AOvVaw1kd0yT1HUgd6Qjk6xP6r2q&ust=1679733419021000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC96-eU9P0CFQAAAAAdAAAAABAS);
 }
+
+div {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+
+  div:target {
+    opacity: 1;
+  }
+
+#about {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+#transition{
+  transition: 1s;
+  cursor: pointer;
+}
+#transition:hover{
+  transform: scale(1,1);
+}
+body {
+    scroll-behavior: smooth;
+  }
+
 </style>
 
 <body>
@@ -202,7 +228,7 @@ body{
 <div class="w3-container w3-center w3-dark-grey" style="padding:128px 16px" id="pricing">
   <h3>GENERAL INFORMATION</h3>
   <div class="w3-row-padding" style="margin-top:64px">
-    <div class="w3-third w3-section">
+    <div class="w3-third w3-section" id="transition">
       <ul class="w3-ul w3-white w3-hover-shadow">
         <li class="w3-orange w3-xlarge w3-padding-32">Identity Documents</li>
         <li class="w3-padding-16">An Identity document is important to get as soon as you are eligible which is from 16 years of age as it proves your identity</li>
@@ -211,7 +237,7 @@ body{
         <li class="w3-padding-16">Your fingerprints will be taken by a Home Affairs official and imprinted on Form DHA-9. </li>
 	</ul>
     </div>
-    <div class="w3-third">
+    <div class="w3-third" id="transition">
       <ul class="w3-ul w3-white w3-hover-shadow">
         <li class="w3-highway-green w3-xlarge w3-padding-32">Birth Certificates</li>
         <li class="w3-padding-16">All children born in South Africa must be registered within 30 days of their birth in terms of the Births and Deaths Registration Act, 1992.</li>
@@ -221,7 +247,7 @@ body{
         <li class="w3-padding-16">
       </ul>
     </div>
-    <div class="w3-third w3-section">
+    <div class="w3-third w3-section" id="transition">
       <ul class="w3-ul w3-white w3-hover-shadow">
         <li class="w3-orange w3-xlarge w3-padding-32">Passports</li>
         <li class="w3-padding-16">A passport is a document issued by a national government for international travel and it certifies the identity and nationality of the holder.</li>

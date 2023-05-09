@@ -109,24 +109,26 @@
 				<input type="text" name="surname"  bind:value={postData.last_Name}>
                 <label for="id_Number">ID Number:</label>
                 <input type="text" name="idNumber" bind:value={postData.id_Number}>
-                <label for="gender">Gender:</label><br/>
-                <input type="radio" id="male" name="Gender" value="Male" bind:group={postData.gender}>
-                <label for="html">Male</label>
-                <input type="radio" id="female" name="Gender" value="Female" bind:group={postData.gender}>
-                <label for="css">Female</label><br/>
                 <label class="cell" for="cellphoneNumber">Cellphone Number:</label>
                 <input type="text" name="cellphoneNumber" bind:value={postData.cellphone_Number}>
-                <label for="civicService">Civic Service:</label><br/>
+                <label for="Email">Email:</label>
+                <input type="text" name="email" bind:value={postData.email}>
+                <label for="gender">Gender:</label><br/>
+                
+                <label for="html" class="male">Male</label>
+                <input type="radio" id="male" name="Gender" value="Male" bind:group={postData.gender}>
+                
+                <label for="css" class="female">Female</label><br/>
+                <input type="radio" id="female" name="Gender" value="Female" bind:group={postData.gender}>
+                
+                <label for="civicService" class="civic">Civic Service:</label>
                 <select name="civicService" id="civicService" bind:value={postData.civic_Service}>
                 <option value="">--Please choose an option--</option>
                 <option value="IDSmartCard">ID</option>
                 <option value="Passport">Passport</option>
                 </select><br/>
-                <label for="Email">Email:</label>
-                <input type="text" name="email" bind:value={postData.email}>
                 <label for="DateTime">Choose Date and Time:</label>
-                <!-- <input type="datetime-local" name="dateTime" bind:value={postData.dateTime}> -->
-                <SveltyPicker inputClasses="form-control" format="yyyy-mm-dd hh:ii" bind:value={postData.date} placeholder='Select date and time' autoclose></SveltyPicker>
+                 <SveltyPicker inputClasses="form-control" format="yyyy-mm-dd hh:ii" bind:value={postData.date} placeholder='Select date and time' autoclose></SveltyPicker>
 
 				<button class="submit" on:click={formHandler} >BOOK</button>
 			</form>
@@ -136,8 +138,10 @@
     <header class="home-header">
         <div class="w3-top">
         <div class="w3-bar w3-white w3-card" id="myNavbar">
-          <a href="#home" class="w3-bar-item w3-button w3-wide">HOME AFFAIRS</a>
-          <div class="w3-right w3-hide-small">
+            <img src="https://www.pikpng.com/pngl/b/442-4423750_unit1mod1-south-africa-home-affairs-clipart.png" alt="logo">
+          <!-- svelte-ignore a11y-missing-attribute -->
+          <a>HOME AFFAIRS</a>
+          <div class="w3-right w3-hide-small" id="nav">
             <a href="/home" class="w3-bar-item w3-button">HOME</a>
             <a href="/" class="w3-bar-item w3-button" id="logout">
                 <i class='bx bx-log-out'></i>
@@ -152,6 +156,31 @@
 <style>
 body{
     background: linear-gradient(-45deg, #dcd7e0, #fff);
+}
+.male{
+  margin-left: 285px;
+}
+.female{
+  margin-left: 280px;
+}
+.civic{
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+#civicService{
+    margin-left: 100px;
+    margin-bottom: 30px;
+}
+img{
+		margin-left: 20px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		width: 40px;
+		height: 50px;
+	}
+#nav{
+		padding-top: 10px;
+		padding-right: 5px;
 }
 
 .home-header{
@@ -199,7 +228,7 @@ body{
     width: 50%;
     margin: auto;
     outline-color: #F89D07;
-    margin-top: 50px;
+    margin-top: 60px;
 }
 .submit {
     border: none;
