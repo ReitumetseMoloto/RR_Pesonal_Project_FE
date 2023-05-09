@@ -95,7 +95,7 @@ body {
 		<p>The Department of Home Affairs is waging a war against long queues. As such we are introducing the Branch Appointment Booking System or BABS.</p>
 		<p>Citizens are encouraged to make use of the online booking system because in the near future, selected Home Affairs offices will process smart ID and passport applications only for clients who have booked an appointment through the Branch Appointment System.</p>
 		<!-- <a href="#about" class="w3-bar-item w3-button w3-orange" id="learnMore"> Learn More</a> -->
-    <button class="aboutbutton" on:click={scrollToAbout}>Go to About Section</button>
+    <button class="aboutbutton" on:click={scrollToAbout}>Read More Below</button>
 	  </div>
 	  <div class="w3-col m6" >
 		<img class="w3-image w3-round-large" id="image" src="https://img.freepik.com/free-vector/digital-device-users-spending-time-together_74855-5234.jpg?w=1380&t=st=1683473053~exp=1683473653~hmac=c3d580977998ed883b205d34053f581921c1bcf495bd3a27743b75ed89d1718c" alt="Home_Image" width="700" height="100">
@@ -204,8 +204,6 @@ body {
 	  <p>Issuing travel documents and passports</p>
 	  <p>Issuing identity documents</p><br/>
 		
-		<p style="font-weight: bold; text-align:center"><i class="fa fa-info-circle" style="font-size:24px ;color:red; padding-right:10px"></i>A branch visit is mandatory to capture and\or verify your biometric details, i.e.
-			fingerprints and signature.<br/> You can also finalise your application at any Home Affairs office once you have booked a slot.</p>
     </div>
     <div class="w3-col m6">
       <p class="w3-wide"><i class="fa fa-id-card-o w3-margin-right"></i>Identity Documents and Identification</p>
@@ -222,6 +220,8 @@ body {
       </div>
     </div>
   </div>
+  <p style="font-weight: bold; text-align:center"><i class="fa fa-info-circle" style="font-size:24px ;color:red; padding-right:10px"></i>A branch visit is mandatory to capture and\or verify your biometric details, i.e.
+    fingerprints and signature.<br/> You can also finalise your application at any Home Affairs office once you have booked a slot.</p>
 </div>
 
 <!-- Pricing Section -->

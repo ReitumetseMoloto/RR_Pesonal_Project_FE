@@ -29,6 +29,7 @@
 		"jquery": "^3.6.4",
 		"semantic-ui-css": "^2.5.0",
 		"svelte-chartjs": "^3.1.2",
+		"svelte-picker": "^0.1.0",
 		"svelty-picker": "^3.4.6"
 	}
 }

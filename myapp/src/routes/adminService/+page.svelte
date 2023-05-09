@@ -58,13 +58,19 @@
           </a>
         </li>
         <li>
-          <a href="@">
+          <a href="/adminService">
             <i class='bx bx-box' ></i>
             <span class="links_name">Reports and Analytics</span>
           </a>
         </li>
         <li>
-          <a href="@">
+          <a href="#bookings">
+            <i class='bx bx-calendar' ></i>
+            <span class="links_name">Bookings</span>
+          </a>
+        </li>
+        <li>
+          <a href="#team">
             <i class='bx bx-user' ></i>
             <span class="links_name">Team</span>
           </a>
@@ -120,7 +126,7 @@
      </div>
     </div>
     
-    <div class="table">
+    <div class="table" id="bookings">
       <div class="titleSort">
       <h3>Booking Details</h3>
       <button class="sort" on:click={sortBookings}>Sort by Date</button>
@@ -148,7 +154,7 @@
           <td>{bookings.email}</td>
           <td>{bookings.civic_Service}</td>
           <td>{bookings.dateTime}</td>
-        </tr>
+        </tr><br/>
         {/each}
           {:else if booking}
             <h2>No bookings found</h2>
@@ -158,13 +164,50 @@
           {/if}
       </table>
     </div>
-    <p class="footer-company-name">Department of Home Affairs © 2023</p>
-  
-          <div class="button">
-            <!-- <button on:click={() => deletebyID(bookings.IDNumber)}>Delete</button> -->
-          </div>
+    
     </div>
- 
+
+    <!-- Team -->
+    <div class="Team" id="team">
+      <h3 class="teamTitle">Members of the Team</h3>
+    <br>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="https://img.freepik.com/free-photo/portrait-outgoing-good-looking-african-american-guy-with-bristle-blue-turtleneck_176420-33783.jpg?w=996&t=st=1683626693~exp=1683627293~hmac=95db650878a6b426c4bf7b7cdab6ad1af1e5af5e413c0c8fcec43b665a47657c" alt="John" style="width:350px; border-radius:20px">
+      <div class="container">
+        <h2>John Peterson</h2>
+        <p class="title">Admin Manager</p>
+        <p>johnp@homeaffairs.ac.za</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="https://img.freepik.com/free-photo/cheerful-curly-girl-keeps-thumbs-up-expresses-like-positive-feedback-approves-supports-plan-praises-store-sale-wears-casual-t-shirt-isolated-white-backgound-celebrates-good-result_273609-56257.jpg?w=996&t=st=1683627563~exp=1683628163~hmac=e87eee4510146fa6ca9b6ab6de358cc17c3c432e1b365906f21dd971c2030a9b" alt="Kate" style="width:350px;  border-radius:20px">
+      <div class="container">
+        <h2>Kate Ross</h2>
+        <p class="title">Administrator</p>
+        <p>kater@homeaffairs.ac.za</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <img src="https://img.freepik.com/free-photo/inside-portrait-confident-young-man-white-clothes-posing-with-charming-smile-isolated-wall_291650-95.jpg?w=996&t=st=1683628851~exp=1683629451~hmac=ae7aceb05dab0abd46ed731de002c82c8e66617a8cac94404cd45297c2877c74" alt="John" style="width:350px;  border-radius:20px">
+      <div class="container">
+        <h2>Luke Hamilton</h2>
+        <p class="title">Data Analyst</p>
+        <p>lukeh@homeaffairs.ac.za</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<p class="footer-company-name">Department of Home Affairs © 2023</p>
   </section>
 </body>
   
@@ -177,6 +220,53 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+.teamTitle{
+  padding-top: 25px;
+}
+
+.Team{
+  background-color: white;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+  text-align: center;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
 .logo{
 		width: 100px;
 		height: 110px;
@@ -200,6 +290,9 @@
   text-align: center;
   text-decoration: none;
   font-size: 16px;
+}
+.sort:hover{
+  background-color:#006636;
 }
 .footer-company-name{
   text-align: center;

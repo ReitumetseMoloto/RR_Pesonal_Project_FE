@@ -2,7 +2,6 @@
     import Header from '../Header.svelte';
     import Footer from '../Footer.svelte';
     import SveltyPicker from 'svelty-picker';
-
     //fomrat date and time
     let booking: any[] = [];
 
@@ -20,7 +19,7 @@
         cellphone_Number: '',
         email: '',
         civic_Service: '',
-        date: ''
+        dateTime: ''
     }
 //form validation and API calls
     function formHandler(event: Event){
@@ -77,7 +76,7 @@
 
                 civic_Service: postData.civic_Service,
 
-                date: postData.date
+                dateTime: postData.dateTime
             })
         })
         .then(response => response.json())
@@ -128,7 +127,7 @@
                 <option value="Passport">Passport</option>
                 </select><br/>
                 <label for="DateTime">Choose Date and Time:</label>
-                 <SveltyPicker inputClasses="form-control" format="yyyy-mm-dd hh:ii" bind:value={postData.date} placeholder='Select date and time' autoclose></SveltyPicker>
+                 <SveltyPicker inputClasses="form-control" format="yyyy-mm-dd hh:ii" bind:value={postData.dateTime} placeholder='Select date and time' autoclose></SveltyPicker>
 
 				<button class="submit" on:click={formHandler} >BOOK</button>
 			</form>
@@ -168,15 +167,15 @@ body{
     padding-bottom: 20px;
 }
 #civicService{
-    margin-left: 100px;
+    margin-left: 75px;
     margin-bottom: 30px;
 }
 img{
-		margin-left: 20px;
-		margin-top: 5px;
-		margin-bottom: 5px;
-		width: 40px;
-		height: 50px;
+    margin-left: 20px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	width: 40px;
+	height: 50px;
 	}
 #nav{
 		padding-top: 10px;
