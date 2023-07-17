@@ -30,6 +30,7 @@
 		"semantic-ui-css": "^2.5.0",
 		"svelte-chartjs": "^3.1.2",
 		"svelte-picker": "^0.1.0",
+		"svelte-popup": "^0.0.3",
 		"svelty-picker": "^3.4.6"
 	}
 }

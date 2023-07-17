@@ -1,5 +1,4 @@
 <script>
-
 	import './styles.css';
 </script>
 
@@ -26,6 +25,4 @@
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
-
-	
 </style>

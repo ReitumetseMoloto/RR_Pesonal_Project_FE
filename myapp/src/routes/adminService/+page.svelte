@@ -220,6 +220,18 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+body::-webkit-scrollbar {
+  width: 1em;
+}
+ 
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(212.38deg, #FB9646 0%, #006636 100%),url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clinithink.com%2F&psig=AOvVaw1kd0yT1HUgd6Qjk6xP6r2q&ust=1679733419021000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC96-eU9P0CFQAAAAAdAAAAABAS);
+  outline: 1px solid #FB9646;
+}
 .teamTitle{
   padding-top: 25px;
 }
@@ -293,6 +305,7 @@
 }
 .sort:hover{
   background-color:#006636;
+  cursor: pointer;
 }
 .footer-company-name{
   text-align: center;
@@ -381,7 +394,12 @@ p{
   height: 50px;
   min-width: 50px;
   padding: 0 15px 0 2px;
+  margin-right: 10px;
   
+}
+.logout:hover{
+  background:#FB9646;
+    cursor: pointer;
 }
 .logout a{
   font-size: 25px;
@@ -435,7 +453,7 @@ p{
   background: #006636;
 }
 .sidebar .nav-links li a:hover{
-  background-color: #F89D07;
+  background-color: #FB9646;
 }
 .sidebar .nav-links li i{
   min-width: 60px;
@@ -453,7 +471,7 @@ p{
   position: relative;
   background: #f5f5f5;
   min-height: 100vh;
-  width: calc(100% - 240px);
+  width: calc(100% - 250px);
   left: 240px;
   transition: all 0.5s ease;
 }

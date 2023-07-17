@@ -77,7 +77,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background: #fff;
+    /* background: #fff; */
     border-radius: 10px;
     box-shadow: 1px 4px 22px -8px #0004;
     display: flex;
@@ -134,6 +134,10 @@
     -webkit-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
     -moz-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
     box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+}
+.submit:hover{
+  background: #006636;
+    cursor: pointer;
 }
 
 .right {

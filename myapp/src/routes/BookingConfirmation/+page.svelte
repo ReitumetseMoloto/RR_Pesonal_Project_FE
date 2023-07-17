@@ -35,6 +35,18 @@ body{
     background: linear-gradient(-45deg, #dcd7e0, #fff);
     padding-top: 30px;
 }
+body::-webkit-scrollbar {
+  width: 1em;
+}
+ 
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(212.38deg, #FB9646 0%, #006636 100%),url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.clinithink.com%2F&psig=AOvVaw1kd0yT1HUgd6Qjk6xP6r2q&ust=1679733419021000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC96-eU9P0CFQAAAAAdAAAAABAS);
+  outline: 1px solid #FB9646;
+}
 img{
 		width: 50px;
 		height: 60px;
@@ -60,6 +72,10 @@ img{
     -webkit-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
     -moz-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
     box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+}
+.home:hover{
+    background: #006636;
+    cursor: pointer;
 }
 .block{
     background-color: #fbceb1;
