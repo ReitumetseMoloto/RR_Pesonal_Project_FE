@@ -106,7 +106,6 @@ body {
 		<h2>WELCOME TO e-HOME AFFAIRS</h2>
 		<p>The Department of Home Affairs is waging a war against long queues. As such we are introducing the Branch Appointment Booking System or BABS.</p>
 		<p>Citizens are encouraged to make use of the online booking system because in the near future, selected Home Affairs offices will process smart ID and passport applications only for clients who have booked an appointment through the Branch Appointment System.</p>
-		<!-- <a href="#about" class="w3-bar-item w3-button w3-orange" id="learnMore"> Learn More</a> -->
     <button class="aboutbutton" on:click={scrollToAbout}>Read More Below</button>
 	  </div>
 	  <div class="w3-col m6" >

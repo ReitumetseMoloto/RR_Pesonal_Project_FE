@@ -10,8 +10,8 @@
 	  <a>HOME AFFAIRS</a>
 	  <!-- Right-sided navbar links -->
 	  <div class="w3-right w3-hide-small" id="nav">
-		<a href="#header" class="w3-bar-item w3-button">HOME</a>
-		<a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+		<a href="#header" class="w3-bar-item w3-button"><i class="fa fa-home"></i>HOME</a>
+		<a href="#about" class="w3-bar-item w3-button"><i class="fa fa-book"></i>ABOUT</a>
 		<a href="#booking" class="w3-bar-item w3-button"><i class="fa fa-user"></i> BOOKING</a>
 		<a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i>CIVIC SERVICES</a>
 		<a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
