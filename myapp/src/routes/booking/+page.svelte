@@ -31,6 +31,17 @@
         civic_Service: '',
         dateTime: ''
     }
+    let showModal = false;
+  let errorMessage = "";
+
+  function displayError(message: string) {
+    errorMessage = message;
+    showModal = true;
+  }
+
+  function closeErrorModal() {
+    showModal = false;
+  }
     //form validation and API calls
     function formHandler(event: Event){
         event.preventDefault()
@@ -46,24 +57,13 @@
         const emailInput = document.querySelector('input[name="email"]') as HTMLInputElement;
         const email = emailInput.value;
 
-        if (!name && !surname) {
-       alert("Please enter all the fields");
-        }else if(!idNumber){
-            alert("Please enter all the fields");
-
-        }
-       else if(!cellphoneNo){
-            alert("Please enter all the fields");
-
-        }
-        else if(!email){
-            alert("Please enter all the fields");
-
-        }else if(idNumber.length !== 13){
-            alert("Invalid ID number");
+        if(idNumber.length !== 13){
+            displayError("ID number must be 13 characters.");
+            return;
 
         }else if(cellphoneNo.length !== 10){
-            alert("Invalid cellpone number");
+            displayError("Cellphone number must be 10 characters.");
+            return;
         }
        else{
         fetch('http://localhost:3000/bookings/post',{
@@ -114,6 +114,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-highway.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <body>
 
     <div class="left">
@@ -124,30 +125,30 @@
                 <h1>BOOK A SLOT HERE</h1>
 
                 <label for="first_Name">First Name:</label>
-				<input type="text" name="name"  bind:value={postData.first_Name}>
+				<input type="text" name="name" required bind:value={postData.first_Name}>
                 <label for="last_Name">Last Name:</label>
-				<input type="text" name="surname"  bind:value={postData.last_Name}>
+				<input type="text" name="surname" required bind:value={postData.last_Name}>
                 <label for="id_Number">ID Number:</label>
-                <input type="text" name="idNumber" bind:value={postData.id_Number}>
+                <input type="text" name="idNumber" required bind:value={postData.id_Number}>
                 <label class="cell" for="cellphoneNumber">Cellphone Number:</label>
-                <input type="text" name="cellphoneNumber" bind:value={postData.cellphone_Number}>
+                <input type="text" name="cellphoneNumber" required bind:value={postData.cellphone_Number}>
                 <label for="Email">Email:</label>
-                <input type="text" name="email" bind:value={postData.email}>
+                <input type="text" name="email" required bind:value={postData.email}>
                 <label for="gender">Gender:</label><br/>
                 
                 <label for="html" class="male">Male</label>
-                <input type="radio" id="male" name="Gender" value="Male" bind:group={postData.gender}>
+                <input type="radio" id="male" name="Gender" value="Male" required bind:group={postData.gender}>
                 
                 <label for="css" class="female">Female</label><br/>
-                <input type="radio" id="female" name="Gender" value="Female" bind:group={postData.gender}>
+                <input type="radio" id="female" name="Gender" value="Female" required bind:group={postData.gender}>
                 <hr class="custom-horizontal-line">
 
                 <label for="civicService" class="civic">Civic Service:</label>
                 <label for="html" class="id">ID</label>
-                <input type="radio" id="id" name="id" value="ID" bind:group={postData.civic_Service}>
+                <input type="radio" id="id" name="id" value="ID" required bind:group={postData.civic_Service}>
                 
                 <label for="css" class="passport">Passport</label><br/>
-                <input type="radio" id="passport" name="passport" value="Passport" bind:group={postData.civic_Service}>
+                <input type="radio" id="passport" name="passport" value="Passport" required bind:group={postData.civic_Service}>
                 
                 <label for="DateTime">Choose Date and Time:</label>
                  <SveltyPicker inputClasses="form-control" format="yyyy-mm-dd hh:ii" bind:value={postData.dateTime} placeholder='Select date and time' autoclose></SveltyPicker>
@@ -157,6 +158,16 @@
                 <Popup message={popupMessage} onClose={handlePopupClose} />
                 {/if}
 			</form>
+            {#if showModal}
+  <div class="error-modal">
+    <div class="error-modal-content">
+      <p>
+        <i class="fas fa-exclamation-triangle custom-icon"></i> 
+        {errorMessage}</p>
+      <button on:click={closeErrorModal}>Close</button>
+    </div>
+  </div>
+{/if}
           
 		</div>
 	</div>
@@ -198,6 +209,53 @@ body::-webkit-scrollbar-thumb {
   border: none; 
   border-top: 1px solid #F89D07; 
 }
+ /* Style for error modal */
+ .error-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .error-modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+
+  .error-modal-content p {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: black;
+  }
+
+  .error-modal-content button {
+    padding: 5px 10px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .error-modal-content button:hover{
+    background-color: #006636;
+  }
+  .custom-icon {
+    font-size: 25px;
+    color: red;
+    background-color: white;
+    padding: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
 .male{
   margin-left: 285px;
 }

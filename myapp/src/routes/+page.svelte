@@ -1,5 +1,16 @@
 
 <script lang="ts">
+  let showModal = false;
+  let errorMessage = "";
+
+  function displayError(message: string) {
+    errorMessage = message;
+    showModal = true;
+  }
+
+  function closeErrorModal() {
+    showModal = false;
+  }
 
   function userLogin(event:Event){
   event.preventDefault();
@@ -7,15 +18,11 @@
   const username = UsernameInput.value;
   const idNumberInput = document.querySelector('input[name="idNumber"]') as HTMLInputElement;
   const idNumber = idNumberInput.value;
-
-  if (!idNumber && !username) {
-    alert("Please enter Username and ID Number");
-  }
   
   // Check if ID number is exactly 13 digits
   if (idNumber.length !== 13) {
-    alert("Invalid ID Number");
-    window.location.href = "/";
+    displayError("ID number must be 13 characters.");
+      return;
   }else{
     window.location.href = "/home";
   }
@@ -32,12 +39,15 @@
   if (password === "HA@adminServices") {
     window.location.href = "/adminService";
   } else {
-    alert("Invalid password");
+    displayError("Invalid Password.");
+      return;
   }
 }
 </script>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <body>
 
 		<div class="login_box">
@@ -45,14 +55,24 @@
 				<div class="contact">
 					<form>
 						<h3>WELCOME TO SECURE SERVICES</h3>
-						<input type="text" name="username" placeholder="USERNAME">
-						<input type="text" name="idNumber" placeholder="SA ID NUMBER">
+						<input type="text" name="username" placeholder="USERNAME" required>
+						<input type="text" name="idNumber" placeholder="SA ID NUMBER" required>
 						<button class="submit"on:click={userLogin} >LOGIN</button>
             <h4 class="OR">OR</h4>
             <h6>Login as Admin:</h6>
-            <input type="password" name="password" placeholder="Enter Password">
+            <input type="password" name="password" placeholder="Enter Password" required>
             <button class="submit" on:click={admin}>ADMIN LOGIN</button>
 					</form>
+          {#if showModal}
+  <div class="error-modal">
+    <div class="error-modal-content">
+      <p>
+        <i class="fas fa-exclamation-triangle custom-icon"></i> 
+        {errorMessage}</p>
+      <button on:click={closeErrorModal}>Close</button>
+    </div>
+  </div>
+{/if}
 				</div>
 			</div>
 			<div class="right">
@@ -67,6 +87,53 @@
 </body>
 
   <style>
+    /* Style for error modal */
+  .error-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .error-modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+
+  .error-modal-content p {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: black;
+  }
+
+  .error-modal-content button {
+    padding: 5px 10px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .error-modal-content button:hover{
+    background-color: #006636;
+  }
+  .custom-icon {
+    font-size: 25px;
+    color: red;
+    background-color: white;
+    padding: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
 	img{
 	width: 100%;
 }
